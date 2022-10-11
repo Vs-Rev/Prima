@@ -1,9 +1,18 @@
 {
+  "MeshQuad|2022-10-11T14:45:59.391Z|05994": {
+    "ƒ.MeshQuad": {
+      "idResource": "MeshQuad|2022-10-11T14:45:59.391Z|05994",
+      "name": "FloorTile"
+    }
+  },
   "Graph|2022-10-11T14:15:21.760Z|32724": {
     "ƒ.Graph": {
       "name": "Level",
       "active": true,
-      "components": {},
+      "components": {
+        "ComponentMesh": [],
+        "ComponentMaterial": []
+      },
       "children": [
         {
           "ƒ.Node": {
@@ -12,10 +21,70 @@
             "components": {},
             "children": [
               {
+                "ƒ.Node": {
+                  "name": "FloorPosition",
+                  "active": true,
+                  "components": {},
+                  "children": [
+                    {
+                      "ƒ.GraphInstance": {
+                        "deserializeFromSource": true,
+                        "name": "Floor",
+                        "idSource": "Graph|2022-10-11T14:17:32.215Z|05705"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "ƒ.Node": {
+                  "name": "FloorPosition",
+                  "active": true,
+                  "components": {},
+                  "children": [
+                    {
+                      "ƒ.GraphInstance": {
+                        "deserializeFromSource": true,
+                        "name": "Floor",
+                        "idSource": "Graph|2022-10-11T14:17:32.215Z|05705"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "ƒ.Node": {
+                  "name": "FloorPosition",
+                  "active": true,
+                  "components": {},
+                  "children": [
+                    {
+                      "ƒ.GraphInstance": {
+                        "deserializeFromSource": true,
+                        "name": "Floor",
+                        "idSource": "Graph|2022-10-11T14:17:32.215Z|05705"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ƒ.Node": {
+            "name": "Mario",
+            "active": true,
+            "components": {
+              "ComponentMaterial": [],
+              "ComponentMesh": []
+            },
+            "children": [
+              {
                 "ƒ.GraphInstance": {
                   "deserializeFromSource": true,
-                  "name": "Floor",
-                  "idSource": "Graph|2022-10-11T14:17:32.215Z|05705"
+                  "name": "MarioChar",
+                  "idSource": "Graph|2022-10-11T14:56:42.320Z|76272"
                 }
               }
             ]
@@ -36,24 +105,6 @@
       "type": "Graph"
     }
   },
-  "MeshQuad|2022-10-11T14:18:52.633Z|82761": {
-    "ƒ.MeshQuad": {
-      "idResource": "MeshQuad|2022-10-11T14:18:52.633Z|82761",
-      "name": "FloorTile"
-    }
-  },
-  "LowBitFloor": {
-    "ƒ.Material": {
-      "name": "FloorTile",
-      "idResource": "LowBitFloor",
-      "shader": "ShaderLitTextured",
-      "coat": {
-        "ƒ.CoatTextured": {
-          "color": "[1, 1, 1, 1]"
-        }
-      }
-    }
-  },
   "Material|2022-10-11T14:19:02.729Z|86276": {
     "ƒ.Material": {
       "name": "FloorTile",
@@ -61,8 +112,59 @@
       "shader": "ShaderLitTextured",
       "coat": {
         "ƒ.CoatTextured": {
-          "color": "[1, 1, 1, 1]"
+          "color": "[1, 1, 1, 1]",
+          "idTexture": "TextureImage|2022-10-11T14:51:24.351Z|97418"
         }
+      }
+    }
+  },
+  "TextureImage|2022-10-11T14:51:24.351Z|97418": {
+    "ƒ.TextureImage": {
+      "url": "Textures\\FloorTile.png",
+      "type": "TextureImage",
+      "Texture": {
+        "idResource": "TextureImage|2022-10-11T14:51:24.351Z|97418",
+        "name": "Textures\\FloorTile.png",
+        "mipmap": "CRISP"
+      }
+    }
+  },
+  "MeshQuad|2022-10-11T14:56:28.739Z|55237": {
+    "ƒ.MeshQuad": {
+      "idResource": "MeshQuad|2022-10-11T14:56:28.739Z|55237",
+      "name": "Mario"
+    }
+  },
+  "Graph|2022-10-11T14:56:42.320Z|76272": {
+    "ƒ.Graph": {
+      "name": "MarioChar",
+      "active": true,
+      "components": {},
+      "children": [],
+      "idResource": "Graph|2022-10-11T14:56:42.320Z|76272",
+      "type": "Graph"
+    }
+  },
+  "Material|2022-10-11T14:59:27.127Z|82765": {
+    "ƒ.Material": {
+      "name": "MarioTexture",
+      "idResource": "Material|2022-10-11T14:59:27.127Z|82765",
+      "shader": "ShaderLitTextured",
+      "coat": {
+        "ƒ.CoatTextured": {
+          "color": "[1, 1, 1, 1]",
+          "idTexture": "TextureImage|2022-10-11T15:00:11.726Z|14136"
+        }
+      }
+    }
+  },
+  "TextureImage|2022-10-11T15:00:11.726Z|14136": {
+    "ƒ.TextureImage": {
+      "type": "TextureImage",
+      "Texture": {
+        "idResource": "TextureImage|2022-10-11T15:00:11.726Z|14136",
+        "name": "Textures\\output-onlinegiftools_richtigrum.png",
+        "mipmap": "CRISP"
       }
     }
   }
