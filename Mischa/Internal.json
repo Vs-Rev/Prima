@@ -23,7 +23,7 @@
                   "ƒ.ComponentMesh": {
                     "idMesh": "MeshQuad|2022-10-18T14:37:01.211Z|55204",
                     "pivot": {
-                      "translation": "[0, 0, -25]",
+                      "translation": "[10, 0, -25]",
                       "rotation": "[0, 0, 0]",
                       "scaling": "[50, 25, 1]"
                     },
@@ -240,6 +240,150 @@
               }
             ]
           }
+        },
+        {
+          "ƒ.Node": {
+            "name": "BGObjects",
+            "active": true,
+            "components": {},
+            "children": [
+              {
+                "ƒ.Node": {
+                  "name": "BG_Trees",
+                  "active": true,
+                  "components": {},
+                  "children": [
+                    {
+                      "ƒ.Node": {
+                        "name": "BG_Tree",
+                        "active": true,
+                        "components": {
+                          "ComponentMaterial": [
+                            {
+                              "ƒ.ComponentMaterial": {
+                                "sortForAlpha": false,
+                                "clrPrimary": "[1, 1, 1, 1]",
+                                "clrSecondary": "[1, 1, 1, 1]",
+                                "pivot": {
+                                  "translation": "[0, 0]",
+                                  "rotation": 0,
+                                  "scaling": "[1, 1]"
+                                },
+                                "Component": {
+                                  "active": true
+                                },
+                                "idMaterial": "Material|2022-10-18T15:07:26.954Z|68624"
+                              }
+                            }
+                          ],
+                          "ComponentMesh": [
+                            {
+                              "ƒ.ComponentMesh": {
+                                "idMesh": "MeshQuad|2022-10-18T15:07:16.082Z|41402",
+                                "pivot": {
+                                  "translation": "[-10, 0, -10]",
+                                  "rotation": "[0, 0, 0]",
+                                  "scaling": "[10, 10, 1]"
+                                },
+                                "Component": {
+                                  "active": true
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        "children": []
+                      }
+                    },
+                    {
+                      "ƒ.Node": {
+                        "name": "BG_Tree",
+                        "active": true,
+                        "components": {
+                          "ComponentMaterial": [
+                            {
+                              "ƒ.ComponentMaterial": {
+                                "sortForAlpha": false,
+                                "clrPrimary": "[1, 1, 1, 1]",
+                                "clrSecondary": "[1, 1, 1, 1]",
+                                "pivot": {
+                                  "translation": "[0, 0]",
+                                  "rotation": 0,
+                                  "scaling": "[1, 1]"
+                                },
+                                "Component": {
+                                  "active": true
+                                },
+                                "idMaterial": "Material|2022-10-18T15:07:26.954Z|68624"
+                              }
+                            }
+                          ],
+                          "ComponentMesh": [
+                            {
+                              "ƒ.ComponentMesh": {
+                                "idMesh": "MeshQuad|2022-10-18T15:07:16.082Z|41402",
+                                "pivot": {
+                                  "translation": "[10, 2, -5]",
+                                  "rotation": "[0, 0, 0]",
+                                  "scaling": "[5, 5, 1]"
+                                },
+                                "Component": {
+                                  "active": true
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        "children": []
+                      }
+                    },
+                    {
+                      "ƒ.Node": {
+                        "name": "BG_Tree",
+                        "active": true,
+                        "components": {
+                          "ComponentMaterial": [
+                            {
+                              "ƒ.ComponentMaterial": {
+                                "sortForAlpha": false,
+                                "clrPrimary": "[1, 1, 1, 1]",
+                                "clrSecondary": "[1, 1, 1, 1]",
+                                "pivot": {
+                                  "translation": "[0, 0]",
+                                  "rotation": 0,
+                                  "scaling": "[1, 1]"
+                                },
+                                "Component": {
+                                  "active": true
+                                },
+                                "idMaterial": "Material|2022-10-18T15:07:26.954Z|68624"
+                              }
+                            }
+                          ],
+                          "ComponentMesh": [
+                            {
+                              "ƒ.ComponentMesh": {
+                                "idMesh": "MeshQuad|2022-10-18T15:07:16.082Z|41402",
+                                "pivot": {
+                                  "translation": "[0, 2, -5]",
+                                  "rotation": "[0, 0, 0]",
+                                  "scaling": "[5, 5, 1]"
+                                },
+                                "Component": {
+                                  "active": true
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        "children": []
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
         }
       ],
       "idResource": "Graph|2022-10-18T14:37:47.845Z|28243",
@@ -297,6 +441,36 @@
       "Texture": {
         "idResource": "TextureImage|2022-10-18T14:47:18.772Z|37807",
         "name": "Ressources\\Textures\\Floor\\FloorTile.png",
+        "mipmap": "CRISP"
+      }
+    }
+  },
+  "MeshQuad|2022-10-18T15:07:16.082Z|41402": {
+    "ƒ.MeshQuad": {
+      "idResource": "MeshQuad|2022-10-18T15:07:16.082Z|41402",
+      "name": "BG_Tree"
+    }
+  },
+  "Material|2022-10-18T15:07:26.954Z|68624": {
+    "ƒ.Material": {
+      "name": "T_BGTree",
+      "idResource": "Material|2022-10-18T15:07:26.954Z|68624",
+      "shader": "ShaderLitTextured",
+      "coat": {
+        "ƒ.CoatTextured": {
+          "color": "[1, 1, 1, 1]",
+          "idTexture": "TextureImage|2022-10-18T15:09:06.786Z|72975"
+        }
+      }
+    }
+  },
+  "TextureImage|2022-10-18T15:09:06.786Z|72975": {
+    "ƒ.TextureImage": {
+      "url": "Ressources\\Textures\\Backgrounds\\Tree.png",
+      "type": "TextureImage",
+      "Texture": {
+        "idResource": "TextureImage|2022-10-18T15:09:06.786Z|72975",
+        "name": "Ressources\\Textures\\Backgrounds\\Tree.png",
         "mipmap": "CRISP"
       }
     }
