@@ -5,13 +5,96 @@
       "name": "IceBackground"
     }
   },
+  "Material|2022-10-18T14:39:01.633Z|80875": {
+    "ƒ.Material": {
+      "name": "T_IceBG",
+      "idResource": "Material|2022-10-18T14:39:01.633Z|80875",
+      "shader": "ShaderLitTextured",
+      "coat": {
+        "ƒ.CoatTextured": {
+          "color": "[1, 1, 1, 1]",
+          "idTexture": "TextureImage|2022-10-18T14:41:37.342Z|62499"
+        }
+      }
+    }
+  },
+  "TextureImage|2022-10-18T14:41:37.342Z|62499": {
+    "ƒ.TextureImage": {
+      "url": "Ressources\\Textures\\Backgrounds\\IceBackground.png",
+      "type": "TextureImage",
+      "Texture": {
+        "idResource": "TextureImage|2022-10-18T14:41:37.342Z|62499",
+        "name": "Ressources\\Textures\\Backgrounds\\IceBackground.png",
+        "mipmap": "CRISP"
+      }
+    }
+  },
+  "MeshCube|2022-10-18T14:45:13.530Z|45900": {
+    "ƒ.MeshCube": {
+      "idResource": "MeshCube|2022-10-18T14:45:13.530Z|45900",
+      "name": "StoneFloor",
+      "type": "MeshCube"
+    }
+  },
+  "Material|2022-10-18T14:45:28.234Z|97761": {
+    "ƒ.Material": {
+      "name": "T_StoneFloor",
+      "idResource": "Material|2022-10-18T14:45:28.234Z|97761",
+      "shader": "ShaderLitTextured",
+      "coat": {
+        "ƒ.CoatTextured": {
+          "color": "[1, 1, 1, 1]",
+          "idTexture": "TextureImage|2022-10-18T14:47:18.772Z|37807"
+        }
+      }
+    }
+  },
+  "TextureImage|2022-10-18T14:47:18.772Z|37807": {
+    "ƒ.TextureImage": {
+      "url": "Ressources\\Textures\\Floor\\FloorTile.png",
+      "type": "TextureImage",
+      "Texture": {
+        "idResource": "TextureImage|2022-10-18T14:47:18.772Z|37807",
+        "name": "Ressources\\Textures\\Floor\\FloorTile.png",
+        "mipmap": "CRISP"
+      }
+    }
+  },
+  "Material|2022-10-18T15:07:26.954Z|68624": {
+    "ƒ.Material": {
+      "name": "T_BGTree",
+      "idResource": "Material|2022-10-18T15:07:26.954Z|68624",
+      "shader": "ShaderLitTextured",
+      "coat": {
+        "ƒ.CoatTextured": {
+          "color": "[1, 1, 1, 1]",
+          "idTexture": "TextureImage|2022-10-18T15:09:06.786Z|72975"
+        }
+      }
+    }
+  },
+  "TextureImage|2022-10-18T15:09:06.786Z|72975": {
+    "ƒ.TextureImage": {
+      "url": "Ressources\\Textures\\Backgrounds\\Tree.png",
+      "type": "TextureImage",
+      "Texture": {
+        "idResource": "TextureImage|2022-10-18T15:09:06.786Z|72975",
+        "name": "Ressources\\Textures\\Backgrounds\\Tree.png",
+        "mipmap": "CRISP"
+      }
+    }
+  },
+  "MeshQuad|2022-10-18T15:07:16.082Z|41402": {
+    "ƒ.MeshQuad": {
+      "idResource": "MeshQuad|2022-10-18T15:07:16.082Z|41402",
+      "name": "BG_Tree"
+    }
+  },
   "Graph|2022-10-18T14:37:47.845Z|28243": {
     "ƒ.Graph": {
       "name": "IceLevel",
       "active": true,
-      "components": {
-        "ComponentMaterial": []
-      },
+      "components": {},
       "children": [
         {
           "ƒ.Node": {
@@ -390,89 +473,11 @@
       "type": "Graph"
     }
   },
-  "Material|2022-10-18T14:39:01.633Z|80875": {
-    "ƒ.Material": {
-      "name": "T_IceBG",
-      "idResource": "Material|2022-10-18T14:39:01.633Z|80875",
-      "shader": "ShaderLitTextured",
-      "coat": {
-        "ƒ.CoatTextured": {
-          "color": "[1, 1, 1, 1]",
-          "idTexture": "TextureImage|2022-10-18T14:41:37.342Z|62499"
-        }
-      }
-    }
-  },
-  "TextureImage|2022-10-18T14:41:37.342Z|62499": {
-    "ƒ.TextureImage": {
-      "url": "Ressources\\Textures\\Backgrounds\\IceBackground.png",
-      "type": "TextureImage",
-      "Texture": {
-        "idResource": "TextureImage|2022-10-18T14:41:37.342Z|62499",
-        "name": "Ressources\\Textures\\Backgrounds\\IceBackground.png",
-        "mipmap": "CRISP"
-      }
-    }
-  },
-  "MeshCube|2022-10-18T14:45:13.530Z|45900": {
-    "ƒ.MeshCube": {
-      "idResource": "MeshCube|2022-10-18T14:45:13.530Z|45900",
-      "name": "StoneFloor",
-      "type": "MeshCube"
-    }
-  },
-  "Material|2022-10-18T14:45:28.234Z|97761": {
-    "ƒ.Material": {
-      "name": "T_StoneFloor",
-      "idResource": "Material|2022-10-18T14:45:28.234Z|97761",
-      "shader": "ShaderLitTextured",
-      "coat": {
-        "ƒ.CoatTextured": {
-          "color": "[1, 1, 1, 1]",
-          "idTexture": "TextureImage|2022-10-18T14:47:18.772Z|37807"
-        }
-      }
-    }
-  },
-  "TextureImage|2022-10-18T14:47:18.772Z|37807": {
-    "ƒ.TextureImage": {
-      "url": "Ressources\\Textures\\Floor\\FloorTile.png",
-      "type": "TextureImage",
-      "Texture": {
-        "idResource": "TextureImage|2022-10-18T14:47:18.772Z|37807",
-        "name": "Ressources\\Textures\\Floor\\FloorTile.png",
-        "mipmap": "CRISP"
-      }
-    }
-  },
-  "MeshQuad|2022-10-18T15:07:16.082Z|41402": {
-    "ƒ.MeshQuad": {
-      "idResource": "MeshQuad|2022-10-18T15:07:16.082Z|41402",
-      "name": "BG_Tree"
-    }
-  },
-  "Material|2022-10-18T15:07:26.954Z|68624": {
-    "ƒ.Material": {
-      "name": "T_BGTree",
-      "idResource": "Material|2022-10-18T15:07:26.954Z|68624",
-      "shader": "ShaderLitTextured",
-      "coat": {
-        "ƒ.CoatTextured": {
-          "color": "[1, 1, 1, 1]",
-          "idTexture": "TextureImage|2022-10-18T15:09:06.786Z|72975"
-        }
-      }
-    }
-  },
-  "TextureImage|2022-10-18T15:09:06.786Z|72975": {
-    "ƒ.TextureImage": {
-      "url": "Ressources\\Textures\\Backgrounds\\Tree.png",
-      "type": "TextureImage",
-      "Texture": {
-        "idResource": "TextureImage|2022-10-18T15:09:06.786Z|72975",
-        "name": "Ressources\\Textures\\Backgrounds\\Tree.png",
-        "mipmap": "CRISP"
-      }
+  "MeshSprite|2022-10-20T12:28:28.614Z|99430": {
+    "ƒ.MeshSprite": {
+      "idResource": "MeshSprite|2022-10-20T12:28:28.614Z|99430",
+      "name": "Mischa",
+      "type": "MeshSprite"
     }
   }
 }
