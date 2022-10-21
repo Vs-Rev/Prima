@@ -43,62 +43,72 @@ var Script;
 (function (Script) {
     var ƒ = FudgeCore;
     var ƒAid = FudgeAid;
+    let mischa;
+    let graph;
+    let walkspeed = new ƒ.Vector3(0, 0, 0);
     ƒ.Debug.info("Main Program Template running!");
-    //initialize Viewport
     let viewport;
     document.addEventListener("interactiveViewportStarted", start);
     function start(_event) {
         viewport = _event.detail;
-        hndLoad(_event);
+        graph = viewport.getBranch();
+        mischa = graph.getChildrenByName("Mischa")[0];
+        loadsprite();
         ƒ.Loop.addEventListener("loopFrame" /* LOOP_FRAME */, update);
-        // ƒ.Loop.start();  // start the game loop to continously draw the viewport, update the audiosystem and drive the physics i/a
+        ƒ.Loop.start(); // start the game loop to continously draw the viewport, update the audiosystem and drive the physics i/a
     }
-    let walkAnimation;
-    function loadAnimations(coat) {
-        walkAnimation = new ƒAid.SpriteSheetAnimation("Walk", coat);
-        walkAnimation.generateByGrid(ƒ.Rectangle.GET(0, 0, 16, 24), 2, 64, ƒ.ORIGIN2D.BOTTOMCENTER, ƒ.Vector2.X(16));
-    }
-    //Load Sprite
-    let player;
-    async function hndLoad(_event) {
+    async function loadsprite() {
         let imgSpriteSheet = new ƒ.TextureImage();
-        await imgSpriteSheet.load("./Ressources/Sprites/MischaWRight.png");
+        await imgSpriteSheet.load("Ressources/Sprites/MischaWRight.png");
         let coat = new ƒ.CoatTextured(undefined, imgSpriteSheet);
-        loadAnimations(coat);
-        player = new ƒAid.NodeSprite("Sprite");
-        player.addComponent(new ƒ.ComponentTransform(new ƒ.Matrix4x4()));
-        player.setAnimation(walkAnimation);
-        player.setFrameDirection(1);
-        player.framerate = 20;
-        player.mtxLocal.translateY(-.3);
-        player.mtxLocal.translateX(-1);
-        player.mtxLocal.translateZ(1.001);
-        let branch = viewport.getBranch();
-        let mischa = branch.getChildrenByName("Mischa")[0];
-        mischa.addChild(player);
-        ƒ.Loop.addEventListener("loopFrame" /* LOOP_FRAME */, update);
-        ƒ.Loop.start(ƒ.LOOP_MODE.TIME_GAME, 30);
+        let animation = new ƒAid.SpriteSheetAnimation("mischa", coat);
+        animation.generateByGrid(ƒ.Rectangle.GET(0, 0, 20, 20), 0, 70, ƒ.ORIGIN2D.CENTER, ƒ.Vector2.X(0));
+        let sprite = new ƒAid.NodeSprite("MischaWalk");
+        sprite.setAnimation(animation);
+        sprite.setFrameDirection(1);
+        sprite.framerate = 6;
+        let cmpTransfrom = new ƒ.ComponentTransform();
+        sprite.addComponent(cmpTransfrom);
+        mischa.addChild(sprite);
     }
-    let leftDirection = false;
-    let lastLeftDirection = false;
-    let speed = .8;
-    let prevSprint = false;
     function update(_event) {
-        speed = .9;
-        if (leftDirection) {
-            speed = -.9;
+        if (ƒ.Keyboard.isPressedOne([ƒ.KEYBOARD_CODE.ARROW_RIGHT, ƒ.KEYBOARD_CODE.D])) {
+            walkspeed.set(1 / 30, 0, 0);
         }
-        if (ƒ.Keyboard.isPressedOne([ƒ.KEYBOARD_CODE.SHIFT_LEFT, ƒ.KEYBOARD_CODE.SHIFT_RIGHT])) {
-            speed = 2;
-            if (leftDirection) {
-                speed = -2;
-            }
+        else if (ƒ.Keyboard.isPressedOne([ƒ.KEYBOARD_CODE.ARROW_LEFT, ƒ.KEYBOARD_CODE.A])) {
+            walkspeed.set(-1 / 30, 0, 0);
         }
-    }
-    function originalupdate(_event) {
+        else {
+            walkspeed.set(0, 0, 0);
+        }
+        if (ƒ.Keyboard.isPressedOne([ƒ.KEYBOARD_CODE.SPACE])) {
+            walkspeed.set(0, 1 / 10, 0);
+        }
+        //Verschiebt den Mischa nach Walkspeed
+        mischa.mtxLocal.translate(walkspeed);
         // ƒ.Physics.simulate();  // if physics is included and used
         viewport.draw();
         ƒ.AudioManager.default.update();
     }
+})(Script || (Script = {}));
+var Script;
+(function (Script) {
+    var ƒ = FudgeCore;
+    var ƒAid = FudgeAid;
+    async function setupSprite(_name, _position, _frames, _offset) {
+        let imgSpriteSheet = new ƒ.TextureImage();
+        await imgSpriteSheet.load("Ressources/Sprites/MischaWRight.png");
+        let coat = new ƒ.CoatTextured(undefined, imgSpriteSheet);
+        let animation = new ƒAid.SpriteSheetAnimation(_name, coat);
+        animation.generateByGrid(ƒ.Rectangle.GET(_position[0], _position[1], _position[2], _position[3]), _frames, 70, ƒ.ORIGIN2D.CENTER, ƒ.Vector2.X(_offset));
+        let sprite = new ƒAid.NodeSprite("MischaWalk");
+        sprite.setAnimation(animation);
+        sprite.setFrameDirection(1);
+        sprite.framerate = 6;
+        let cmpTransfrom = new ƒ.ComponentTransform();
+        sprite.addComponent(cmpTransfrom);
+        return sprite;
+    }
+    Script.setupSprite = setupSprite;
 })(Script || (Script = {}));
 //# sourceMappingURL=Script.js.map

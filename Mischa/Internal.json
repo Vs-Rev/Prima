@@ -833,7 +833,53 @@
             "name": "Mischa",
             "active": true,
             "components": {
-              "ComponentMesh": []
+              "ComponentMesh": [
+                {
+                  "ƒ.ComponentMesh": {
+                    "idMesh": "MeshQuad|2022-10-21T13:28:42.730Z|66528",
+                    "pivot": {
+                      "translation": "[0, 0, 0]",
+                      "rotation": "[0, 0, 0]",
+                      "scaling": "[1, 1, 1]"
+                    },
+                    "Component": {
+                      "active": true
+                    }
+                  }
+                }
+              ],
+              "ComponentMaterial": [
+                {
+                  "ƒ.ComponentMaterial": {
+                    "sortForAlpha": false,
+                    "clrPrimary": "[1, 1, 1, 1]",
+                    "clrSecondary": "[1, 1, 1, 1]",
+                    "pivot": {
+                      "translation": "[0, 0]",
+                      "rotation": 0,
+                      "scaling": "[1, 1]"
+                    },
+                    "Component": {
+                      "active": true
+                    },
+                    "idMaterial": "Material|2022-10-21T13:28:51.247Z|18747"
+                  }
+                }
+              ],
+              "ComponentTransform": [
+                {
+                  "ƒ.ComponentTransform": {
+                    "local": {
+                      "translation": "[0, 0, 1]",
+                      "rotation": "[0, 0, 0]",
+                      "scaling": "[1, 1, 1]"
+                    },
+                    "Component": {
+                      "active": true
+                    }
+                  }
+                }
+              ]
             },
             "children": []
           }
@@ -841,6 +887,24 @@
       ],
       "idResource": "Graph|2022-10-18T14:37:47.845Z|28243",
       "type": "Graph"
+    }
+  },
+  "MeshQuad|2022-10-21T13:28:42.730Z|66528": {
+    "ƒ.MeshQuad": {
+      "idResource": "MeshQuad|2022-10-21T13:28:42.730Z|66528",
+      "name": "MischaQuad"
+    }
+  },
+  "Material|2022-10-21T13:28:51.247Z|18747": {
+    "ƒ.Material": {
+      "name": "MischaTexture",
+      "idResource": "Material|2022-10-21T13:28:51.247Z|18747",
+      "shader": "ShaderLitTextured",
+      "coat": {
+        "ƒ.CoatTextured": {
+          "color": "[1, 1, 1, 1]"
+        }
+      }
     }
   }
 }

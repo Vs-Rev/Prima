@@ -9,3 +9,7 @@ declare namespace Script {
 }
 declare namespace Script {
 }
+declare namespace Script {
+    import ƒAid = FudgeAid;
+    function setupSprite(_name: string, _position: number[], _frames: number, _offset: number): Promise<ƒAid.NodeSprite>;
+}
