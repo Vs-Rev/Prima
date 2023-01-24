@@ -1,0 +1,98 @@
+{
+  "Graph|2023-01-24T19:15:40.303Z|89789": {
+    "ƒ.Graph": {
+      "name": "Main",
+      "active": true,
+      "components": {
+        "ComponentMesh": []
+      },
+      "children": [
+        {
+          "ƒ.Node": {
+            "name": "World",
+            "active": true,
+            "components": {},
+            "children": [
+              {
+                "ƒ.Node": {
+                  "name": "Obstacles",
+                  "active": true,
+                  "components": {},
+                  "children": []
+                }
+              },
+              {
+                "ƒ.Node": {
+                  "name": "Road",
+                  "active": true,
+                  "components": {},
+                  "children": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ƒ.Node": {
+            "name": "Kart",
+            "active": true,
+            "components": {},
+            "children": [
+              {
+                "ƒ.Node": {
+                  "name": "Cam",
+                  "active": true,
+                  "components": {},
+                  "children": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ƒ.Node": {
+            "name": "Items",
+            "active": true,
+            "components": {},
+            "children": [
+              {
+                "ƒ.Node": {
+                  "name": "Boost",
+                  "active": true,
+                  "components": {},
+                  "children": []
+                }
+              },
+              {
+                "ƒ.Node": {
+                  "name": "Break",
+                  "active": true,
+                  "components": {},
+                  "children": []
+                }
+              },
+              {
+                "ƒ.Node": {
+                  "name": "Coins",
+                  "active": true,
+                  "components": {},
+                  "children": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ƒ.Node": {
+            "name": "Timer",
+            "active": true,
+            "components": {},
+            "children": []
+          }
+        }
+      ],
+      "idResource": "Graph|2023-01-24T19:15:40.303Z|89789",
+      "type": "Graph"
+    }
+  }
+}
