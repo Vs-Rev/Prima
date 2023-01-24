@@ -18,14 +18,163 @@
                   "name": "Obstacles",
                   "active": true,
                   "components": {},
-                  "children": []
+                  "children": [
+                    {
+                      "ƒ.Node": {
+                        "name": "Stones",
+                        "active": true,
+                        "components": {
+                          "ComponentMesh": [
+                            {
+                              "ƒ.ComponentMesh": {
+                                "idMesh": "MeshCube|2023-01-24T19:51:18.918Z|40829",
+                                "pivot": {
+                                  "translation": "[0, 0, 20]",
+                                  "rotation": "[0, 0, 0]",
+                                  "scaling": "[2, 2, 2]"
+                                },
+                                "Component": {
+                                  "active": true
+                                }
+                              }
+                            }
+                          ],
+                          "ComponentMaterial": [
+                            {
+                              "ƒ.ComponentMaterial": {
+                                "sortForAlpha": false,
+                                "clrPrimary": "[0.47058823529411764, 0.47058823529411764, 0.47058823529411764, 1]",
+                                "clrSecondary": "[1, 1, 1, 1]",
+                                "pivot": {
+                                  "translation": "[0, 0]",
+                                  "rotation": 0,
+                                  "scaling": "[1, 1]"
+                                },
+                                "Component": {
+                                  "active": true
+                                },
+                                "idMaterial": "Material|2023-01-24T19:28:56.343Z|78866"
+                              }
+                            }
+                          ]
+                        },
+                        "children": []
+                      }
+                    }
+                  ]
                 }
               },
               {
                 "ƒ.Node": {
                   "name": "Road",
                   "active": true,
-                  "components": {},
+                  "components": {
+                    "ComponentMesh": [
+                      {
+                        "ƒ.ComponentMesh": {
+                          "idMesh": "MeshQuad|2023-01-24T19:32:06.636Z|84569",
+                          "pivot": {
+                            "translation": "[0, 0, 0]",
+                            "rotation": "[-90, 0, 0]",
+                            "scaling": "[50, 50, 10]"
+                          },
+                          "Component": {
+                            "active": true
+                          }
+                        }
+                      }
+                    ],
+                    "ComponentMaterial": [
+                      {
+                        "ƒ.ComponentMaterial": {
+                          "sortForAlpha": false,
+                          "clrPrimary": "[0.7843137254901961, 0, 1, 1]",
+                          "clrSecondary": "[1, 1, 1, 1]",
+                          "pivot": {
+                            "translation": "[0, 0]",
+                            "rotation": 0,
+                            "scaling": "[1, 1]"
+                          },
+                          "Component": {
+                            "active": true
+                          },
+                          "idMaterial": "Material|2023-01-24T19:28:56.343Z|78866"
+                        }
+                      }
+                    ],
+                    "ComponentLight": []
+                  },
+                  "children": [
+                    {
+                      "ƒ.Node": {
+                        "name": "Pyramide",
+                        "active": true,
+                        "components": {
+                          "ComponentMesh": [
+                            {
+                              "ƒ.ComponentMesh": {
+                                "idMesh": "MeshPyramid|2023-01-24T19:45:40.850Z|86582",
+                                "pivot": {
+                                  "translation": "[0, 0, 0]",
+                                  "rotation": "[0, 0, 0]",
+                                  "scaling": "[5, 5, 5]"
+                                },
+                                "Component": {
+                                  "active": true
+                                }
+                              }
+                            }
+                          ],
+                          "ComponentMaterial": [
+                            {
+                              "ƒ.ComponentMaterial": {
+                                "sortForAlpha": false,
+                                "clrPrimary": "[1, 1, 1, 1]",
+                                "clrSecondary": "[1, 1, 1, 1]",
+                                "pivot": {
+                                  "translation": "[0, 0]",
+                                  "rotation": 0,
+                                  "scaling": "[1, 1]"
+                                },
+                                "Component": {
+                                  "active": true
+                                },
+                                "idMaterial": "Material|2023-01-24T19:28:56.343Z|78866"
+                              }
+                            }
+                          ]
+                        },
+                        "children": []
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "ƒ.Node": {
+                  "name": "Sunlight",
+                  "active": true,
+                  "components": {
+                    "ComponentLight": [
+                      {
+                        "ƒ.ComponentLight": {
+                          "pivot": {
+                            "translation": "[0, 0, 0]",
+                            "rotation": "[0, 0, 0]",
+                            "scaling": "[1, 1, 1]"
+                          },
+                          "light": {
+                            "ƒ.LightAmbient": {
+                              "color": "[0.9803921568627451, 1, 0.8392156862745098, 1]"
+                            }
+                          },
+                          "Component": {
+                            "active": true
+                          }
+                        }
+                      }
+                    ]
+                  },
                   "children": []
                 }
               }
@@ -93,6 +242,40 @@
       ],
       "idResource": "Graph|2023-01-24T19:15:40.303Z|89789",
       "type": "Graph"
+    }
+  },
+  "Material|2023-01-24T19:28:56.343Z|78866": {
+    "ƒ.Material": {
+      "name": "ShaderGouraud",
+      "idResource": "Material|2023-01-24T19:28:56.343Z|78866",
+      "shader": "ShaderGouraud",
+      "coat": {
+        "ƒ.CoatRemissive": {
+          "color": "[1, 1, 1, 1]",
+          "diffuse": 1,
+          "specular": 0
+        }
+      }
+    }
+  },
+  "MeshQuad|2023-01-24T19:32:06.636Z|84569": {
+    "ƒ.MeshQuad": {
+      "idResource": "MeshQuad|2023-01-24T19:32:06.636Z|84569",
+      "name": "MeshQuad"
+    }
+  },
+  "MeshPyramid|2023-01-24T19:45:40.850Z|86582": {
+    "ƒ.MeshPyramid": {
+      "idResource": "MeshPyramid|2023-01-24T19:45:40.850Z|86582",
+      "name": "MeshPyramid",
+      "type": "MeshPyramid"
+    }
+  },
+  "MeshCube|2023-01-24T19:51:18.918Z|40829": {
+    "ƒ.MeshCube": {
+      "idResource": "MeshCube|2023-01-24T19:51:18.918Z|40829",
+      "name": "MeshCube",
+      "type": "MeshCube"
     }
   }
 }
