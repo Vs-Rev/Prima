@@ -1,11 +1,43 @@
 {
+  "MeshCube|2023-01-24T19:51:18.918Z|40829": {
+    "ƒ.MeshCube": {
+      "idResource": "MeshCube|2023-01-24T19:51:18.918Z|40829",
+      "name": "MeshCube",
+      "type": "MeshCube"
+    }
+  },
+  "Material|2023-01-24T19:28:56.343Z|78866": {
+    "ƒ.Material": {
+      "name": "ShaderGouraud",
+      "idResource": "Material|2023-01-24T19:28:56.343Z|78866",
+      "shader": "ShaderGouraud",
+      "coat": {
+        "ƒ.CoatRemissive": {
+          "color": "[1, 1, 1, 1]",
+          "diffuse": 1,
+          "specular": 0
+        }
+      }
+    }
+  },
+  "MeshQuad|2023-01-24T19:32:06.636Z|84569": {
+    "ƒ.MeshQuad": {
+      "idResource": "MeshQuad|2023-01-24T19:32:06.636Z|84569",
+      "name": "MeshQuad"
+    }
+  },
+  "MeshPyramid|2023-01-24T19:45:40.850Z|86582": {
+    "ƒ.MeshPyramid": {
+      "idResource": "MeshPyramid|2023-01-24T19:45:40.850Z|86582",
+      "name": "MeshPyramid",
+      "type": "MeshPyramid"
+    }
+  },
   "Graph|2023-01-24T19:15:40.303Z|89789": {
     "ƒ.Graph": {
       "name": "Main",
       "active": true,
-      "components": {
-        "ComponentMesh": []
-      },
+      "components": {},
       "children": [
         {
           "ƒ.Node": {
@@ -101,13 +133,12 @@
                           "idMaterial": "Material|2023-01-24T19:28:56.343Z|78866"
                         }
                       }
-                    ],
-                    "ComponentLight": []
+                    ]
                   },
                   "children": [
                     {
                       "ƒ.Node": {
-                        "name": "Pyramide",
+                        "name": "Kart",
                         "active": true,
                         "components": {
                           "ComponentMesh": [
@@ -117,7 +148,7 @@
                                 "pivot": {
                                   "translation": "[0, 0, 0]",
                                   "rotation": "[0, 0, 0]",
-                                  "scaling": "[5, 5, 5]"
+                                  "scaling": "[1, 1, 1]"
                                 },
                                 "Component": {
                                   "active": true
@@ -191,7 +222,22 @@
                 "ƒ.Node": {
                   "name": "Cam",
                   "active": true,
-                  "components": {},
+                  "components": {
+                    "ComponentTransform": [
+                      {
+                        "ƒ.ComponentTransform": {
+                          "local": {
+                            "translation": "[0, 10, -9]",
+                            "rotation": "[0, 0, 0]",
+                            "scaling": "[1, 1, 1]"
+                          },
+                          "Component": {
+                            "active": true
+                          }
+                        }
+                      }
+                    ]
+                  },
                   "children": []
                 }
               }
@@ -244,11 +290,11 @@
       "type": "Graph"
     }
   },
-  "Material|2023-01-24T19:28:56.343Z|78866": {
+  "Material|2023-02-15T20:33:07.422Z|73164": {
     "ƒ.Material": {
-      "name": "ShaderGouraud",
-      "idResource": "Material|2023-01-24T19:28:56.343Z|78866",
-      "shader": "ShaderGouraud",
+      "name": "ShaderFlat",
+      "idResource": "Material|2023-02-15T20:33:07.422Z|73164",
+      "shader": "ShaderFlat",
       "coat": {
         "ƒ.CoatRemissive": {
           "color": "[1, 1, 1, 1]",
@@ -256,26 +302,6 @@
           "specular": 0
         }
       }
-    }
-  },
-  "MeshQuad|2023-01-24T19:32:06.636Z|84569": {
-    "ƒ.MeshQuad": {
-      "idResource": "MeshQuad|2023-01-24T19:32:06.636Z|84569",
-      "name": "MeshQuad"
-    }
-  },
-  "MeshPyramid|2023-01-24T19:45:40.850Z|86582": {
-    "ƒ.MeshPyramid": {
-      "idResource": "MeshPyramid|2023-01-24T19:45:40.850Z|86582",
-      "name": "MeshPyramid",
-      "type": "MeshPyramid"
-    }
-  },
-  "MeshCube|2023-01-24T19:51:18.918Z|40829": {
-    "ƒ.MeshCube": {
-      "idResource": "MeshCube|2023-01-24T19:51:18.918Z|40829",
-      "name": "MeshCube",
-      "type": "MeshCube"
     }
   }
 }
