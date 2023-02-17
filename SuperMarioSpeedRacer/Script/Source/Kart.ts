@@ -26,7 +26,7 @@ namespace Script {
             this.addComponent(cmpTransform);
 
             let mesh: ƒ.MeshCube = new ƒ.MeshCube();
-            let material: ƒ.Material = <ƒ.Material>ƒ.Project.resources["Material|2023-01-24T19:28:56.343Z|78866"];
+            let material: ƒ.Material = <ƒ.Material>ƒ.Project.resources["Material|2023-02-17T06:10:18.236Z|44182"];
             let cmpMaterial: ƒ.ComponentMaterial = new ƒ.ComponentMaterial(material);
             cmpMaterial.clrPrimary = new ƒ.Color(0.5, 1, 1, 1);
 
