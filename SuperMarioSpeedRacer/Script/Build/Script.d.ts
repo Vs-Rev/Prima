@@ -5,6 +5,7 @@ declare namespace Script {
         private deltaTime;
         private rb;
         private acceleration;
+        private maxSpeed;
         private currentSteerFactor;
         private steeringSpeed;
         private maxSteerAngle;
@@ -13,11 +14,16 @@ declare namespace Script {
         update(): void;
         private calculateDeltaTime;
         private rotateKart;
-        private resetSteerFactor;
+        private slowResetSteerFactor;
         private decrementSteerFactor;
         private incrementSteerFactor;
         private inputDrive;
     }
 }
 declare namespace Script {
+}
+declare namespace Script {
+    import ƒ = FudgeCore;
+    class RoundTrigger extends ƒ.Node {
+    }
 }

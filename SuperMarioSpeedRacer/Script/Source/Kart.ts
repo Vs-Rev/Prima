@@ -8,21 +8,22 @@ namespace Script {
         private deltaTime: number;
         private rb: ƒ.ComponentRigidbody;
 
-        private acceleration: number = 700;
+        private acceleration: number = 1500;
+        private maxSpeed: number = 50;
 
         private currentSteerFactor: number = 0;
-        private steeringSpeed: number = 2;
-        private maxSteerAngle: number = 40; //80
+        private steeringSpeed: number = 3;
+        private maxSteerAngle: number = 50; //80
         private currentSteerAngle: number = 0;
 
         constructor() {
+
             super("Kart");
 
-            console.log("new kart instance")
-
-
             let cmpTransform = new ƒ.ComponentTransform();
-            cmpTransform.mtxLocal.translateY(0.5);
+
+            cmpTransform.mtxLocal.translateY(5.5);
+
             this.addComponent(cmpTransform);
 
             let mesh: ƒ.MeshCube = new ƒ.MeshCube();
@@ -39,7 +40,11 @@ namespace Script {
 
             this.rb = new ƒ.ComponentRigidbody();
             this.rb.typeBody = ƒ.BODY_TYPE.DYNAMIC;
-            this.rb.friction = 0.98;
+            this.rb.friction = 0.6;
+            this.rb.effectGravity = 2;
+            this.rb.effectRotation = new ƒ.Vector3(0, 0, 0);
+            this.rb.restitution = 0;
+            //this.rb.friction = 0;
             this.addComponent(this.rb);
 
             this.lastFrameTime = new Date().getTime();
@@ -64,9 +69,8 @@ namespace Script {
             let currentVelocity: ƒ.Vector3 = this.rb.getVelocity();
 
             let xzVelocity: ƒ.Vector3 = new ƒ.Vector3(currentVelocity.x, 0, currentVelocity.z);
-
+    
             if (xzVelocity.magnitude <= 0.01) {
-                console.log("return");
                 return;
             }
 
@@ -76,12 +80,10 @@ namespace Script {
 
             let lookAtVelocity: ƒ.Matrix4x4 = ƒ.Matrix4x4.LOOK_AT(ƒ.Vector3.ZERO(), xzVelocity, new ƒ.Vector3(0, 1, 0));
             this.rb.setRotation(lookAtVelocity.getEulerAngles());
-
-            //console.log(lookAtVelocity.getEulerAngles());
         }
 
 
-        private resetSteerFactor() {
+        private slowResetSteerFactor() {
 
             if (this.currentSteerFactor < 0) {
 
@@ -99,6 +101,7 @@ namespace Script {
             }
         }
 
+        //Grund für Glitch
         private decrementSteerFactor() {
 
             this.currentSteerFactor -= this.steeringSpeed * this.deltaTime;
@@ -119,76 +122,79 @@ namespace Script {
 
         private inputDrive(): void {
 
-            //vorwärts
-            if (ƒ.Keyboard.isPressedOne([ƒ.KEYBOARD_CODE.W, ƒ.KEYBOARD_CODE.ARROW_UP])) {
-
-                let defaultVector: ƒ.Vector3 = new ƒ.Vector3(0, 0, this.acceleration * this.deltaTime);
-
-                //let steerRotation: ƒ.Matrix4x4 = ƒ.Matrix4x4.ROTATION_Y(this.currentSteerAngle);
-
-                let currentKartRotation: ƒ.Vector3 = this.cmpTransform.mtxLocal.rotation;
-
-                //let rotatedVector: ƒ.Vector3 = ƒ.Vector3.TRANSFORMATION(defaultVector, steerRotation);
-
-                //console.log(currentKartRotation.y);
-
-                let rotatedVector: ƒ.Vector3 = ƒ.Vector3.TRANSFORMATION(defaultVector, ƒ.Matrix4x4.ROTATION_Y(currentKartRotation.y));
-
-                this.rb.applyForce(rotatedVector);
+            if (this.rb.collisions.length == 0) {
+                return;
             }
 
-            //bremsen
-            if (ƒ.Keyboard.isPressedOne([ƒ.KEYBOARD_CODE.S, ƒ.KEYBOARD_CODE.ARROW_DOWN])) {
-
-                let defaultVector: ƒ.Vector3 = new ƒ.Vector3(0, 0, -this.acceleration * this.deltaTime);
-
-                //let steerRotation: ƒ.Matrix4x4 = ƒ.Matrix4x4.ROTATION_Y(this.currentSteerAngle);
-
-                let currentKartRotation: ƒ.Vector3 = this.cmpTransform.mtxLocal.rotation;
-
-                //let rotatedVector: ƒ.Vector3 = ƒ.Vector3.TRANSFORMATION(defaultVector, steerRotation);
-
-                //console.log(currentKartRotation.y);
-
-                let rotatedVector: ƒ.Vector3 = ƒ.Vector3.TRANSFORMATION(defaultVector, ƒ.Matrix4x4.ROTATION_Y(currentKartRotation.y));
-
-                this.rb.applyForce(rotatedVector);
-            }
-
+            
             let defaultForward: ƒ.Vector3 = new ƒ.Vector3(0, 0, 1);
             let kartForward: ƒ.Vector3 = ƒ.Vector3.TRANSFORMATION(defaultForward, ƒ.Matrix4x4.ROTATION_Y(this.cmpTransform.mtxLocal.rotation.y));
             let dotKartForwardVelocity: number = ƒ.Vector3.DOT(kartForward, this.rb.getVelocity());
             let isRearDriving: boolean = dotKartForwardVelocity < 0 ? true : false;
 
-            let isSteeringInput: boolean;
+            //vorwärts
+            if (ƒ.Keyboard.isPressedOne([ƒ.KEYBOARD_CODE.W, ƒ.KEYBOARD_CODE.ARROW_UP])) {
+
+                let defaultVector: ƒ.Vector3 = new ƒ.Vector3(0, 0, this.acceleration * this.deltaTime);
+
+                //anlassen:
+                let currentKartRotation: ƒ.Vector3 = this.cmpTransform.mtxLocal.rotation;
+
+                let rotatedVector: ƒ.Vector3 = ƒ.Vector3.TRANSFORMATION(defaultVector, ƒ.Matrix4x4.ROTATION_Y(currentKartRotation.y));
+
+                if (this.rb.getVelocity().magnitude < this.maxSpeed) {
+                    this.rb.applyForce(rotatedVector);
+                }
+            }
+
+            //bremsen
+            if (ƒ.Keyboard.isPressedOne([ƒ.KEYBOARD_CODE.S, ƒ.KEYBOARD_CODE.ARROW_DOWN])) {
+
+                let defaultVector: ƒ.Vector3 = new ƒ.Vector3(0, 0, (isRearDriving ? 2 : 1) * -this.acceleration * this.deltaTime);
+
+                let currentKartRotation: ƒ.Vector3 = this.cmpTransform.mtxLocal.rotation;
+
+                let rotatedVector: ƒ.Vector3 = ƒ.Vector3.TRANSFORMATION(defaultVector, ƒ.Matrix4x4.ROTATION_Y(currentKartRotation.y));
+
+                if (this.rb.getVelocity().magnitude < this.maxSpeed) {
+                    this.rb.applyForce(rotatedVector);
+                }
+            }
+
+            let isSteerInput: boolean;
 
             //rechts
             if (ƒ.Keyboard.isPressedOne([ƒ.KEYBOARD_CODE.D, ƒ.KEYBOARD_CODE.ARROW_RIGHT])) {
 
                 this.decrementSteerFactor();
 
-                isSteeringInput = true;
+                isSteerInput = true;
             }
             //links
             if (ƒ.Keyboard.isPressedOne([ƒ.KEYBOARD_CODE.A, ƒ.KEYBOARD_CODE.ARROW_LEFT])) {
 
                 this.incrementSteerFactor();
 
-                isSteeringInput = true;
+                isSteerInput = true;
             }
 
 
+            let isSteering: boolean = this.currentSteerAngle != 0;
 
-            if (isSteeringInput) {
+            if (isSteering) {
                 this.rotateKart(isRearDriving);
-            } else {
-                this.resetSteerFactor();
+            }
+
+            if (!isSteerInput) {
+                this.slowResetSteerFactor();
             }
 
             this.currentSteerAngle = this.currentSteerFactor * this.maxSteerAngle;
 
+
+
             //rotate rb velocity according to steerangle
-            let rotatedVelocity: ƒ.Vector3 = ƒ.Vector3.TRANSFORMATION(this.rb.getVelocity(), ƒ.Matrix4x4.ROTATION_Y( this.currentSteerAngle * (isRearDriving ? -1 : 1) * this.deltaTime));
+            let rotatedVelocity: ƒ.Vector3 = ƒ.Vector3.TRANSFORMATION(this.rb.getVelocity(), ƒ.Matrix4x4.ROTATION_Y(this.currentSteerAngle * (isRearDriving ? -1 : 1) * this.deltaTime));
             this.rb.setVelocity(rotatedVelocity);
         }
     }
