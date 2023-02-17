@@ -8,11 +8,11 @@ namespace Script {
         private deltaTime: number;
         private rb: ƒ.ComponentRigidbody;
 
-        private acceleration: number = 500;
+        private acceleration: number = 700;
 
         private currentSteerFactor: number = 0;
-        private steeringSpeed: number = 5;
-        private maxSteerAngle: number = 80;
+        private steeringSpeed: number = 2;
+        private maxSteerAngle: number = 40; //80
         private currentSteerAngle: number = 0;
 
         constructor() {

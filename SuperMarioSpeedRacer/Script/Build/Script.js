@@ -6,10 +6,10 @@ var Script;
         lastFrameTime;
         deltaTime;
         rb;
-        acceleration = 500;
+        acceleration = 700;
         currentSteerFactor = 0;
-        steeringSpeed = 5;
-        maxSteerAngle = 80;
+        steeringSpeed = 2;
+        maxSteerAngle = 40; //80
         currentSteerAngle = 0;
         constructor() {
             super("Kart");
