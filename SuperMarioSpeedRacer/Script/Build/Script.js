@@ -15,7 +15,7 @@ var Script;
         constructor() {
             super("Kart");
             let cmpTransform = new ƒ.ComponentTransform();
-            cmpTransform.mtxLocal.translateY(5.5);
+            cmpTransform.mtxLocal.translateY(0.5);
             this.addComponent(cmpTransform);
             let mesh = new ƒ.MeshCube();
             let material = ƒ.Project.resources["Material|2023-02-17T06:10:18.236Z|44182"];
@@ -144,6 +144,8 @@ var Script;
     let rbRoundTrigger;
     let lapCount = 0;
     let maxLapCount = 2;
+    let lapDisplay;
+    let isKartInRoundTrigger;
     function start(_event) {
         viewport = _event.detail;
         root = viewport.getBranch();
@@ -157,6 +159,7 @@ var Script;
         viewport.camera.mtxPivot.rotateX(4);
         kart.addChild(viewport.camera.node);
         root.addChild(kart);
+        lapDisplay = document.querySelector("#lapDisplay");
         rbRoundTrigger = root.getChildrenByName("RoundTrigger")[0].getComponent(ƒ.ComponentRigidbody);
         rbRoundTrigger.collisionMask = ƒ.COLLISION_GROUP.GROUP_5;
         ƒ.Loop.addEventListener("loopFrame" /* ƒ.EVENT.LOOP_FRAME */, update);
@@ -171,16 +174,21 @@ var Script;
     }
     function checkRoundDriveThrough() {
         if (rbRoundTrigger.triggerings.length > 0) {
-            lapCount++;
-            console.log(lapCount);
+            if (!isKartInRoundTrigger) {
+                increaseLapCount();
+            }
+            isKartInRoundTrigger = true;
+        }
+        else {
+            isKartInRoundTrigger = false;
         }
     }
-})(Script || (Script = {}));
-var Script;
-(function (Script) {
-    var ƒ = FudgeCore;
-    class RoundTrigger extends ƒ.Node {
+    function increaseLapCount() {
+        lapCount++;
+        updateLapDisplay();
     }
-    Script.RoundTrigger = RoundTrigger;
+    function updateLapDisplay() {
+        lapDisplay.innerHTML = "Lap Count: " + lapCount;
+    }
 })(Script || (Script = {}));
 //# sourceMappingURL=Script.js.map

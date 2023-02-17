@@ -22,8 +22,3 @@ declare namespace Script {
 }
 declare namespace Script {
 }
-declare namespace Script {
-    import ƒ = FudgeCore;
-    class RoundTrigger extends ƒ.Node {
-    }
-}

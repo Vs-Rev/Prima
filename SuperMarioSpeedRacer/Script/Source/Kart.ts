@@ -22,7 +22,7 @@ namespace Script {
 
             let cmpTransform = new ƒ.ComponentTransform();
 
-            cmpTransform.mtxLocal.translateY(5.5);
+            cmpTransform.mtxLocal.translateY(0.5);
 
             this.addComponent(cmpTransform);
 

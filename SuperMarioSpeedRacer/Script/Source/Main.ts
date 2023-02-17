@@ -13,7 +13,9 @@ namespace Script {
 
   let lapCount: number = 0;
   let maxLapCount: number = 2;
+  let lapDisplay: HTMLParagraphElement;
 
+  let isKartInRoundTrigger: boolean;
 
   function start(_event: CustomEvent): void {
 
@@ -35,6 +37,8 @@ namespace Script {
     kart.addChild(viewport.camera.node);
     root.addChild(kart);
 
+    lapDisplay = <HTMLParagraphElement>document.querySelector("#lapDisplay");
+
 
     rbRoundTrigger = root.getChildrenByName("RoundTrigger")[0].getComponent(ƒ.ComponentRigidbody);
     rbRoundTrigger.collisionMask = ƒ.COLLISION_GROUP.GROUP_5;
@@ -51,6 +55,7 @@ namespace Script {
 
     viewport.draw();
 
+
     checkRoundDriveThrough();
 
     ƒ.AudioManager.default.update();
@@ -59,11 +64,27 @@ namespace Script {
   function checkRoundDriveThrough() {
 
     if (rbRoundTrigger.triggerings.length > 0) {
-      lapCount++;
 
-      console.log(lapCount);
+      if (!isKartInRoundTrigger) {
+
+        increaseLapCount();
+      }
+
+      isKartInRoundTrigger = true;
+
+    } else {
+      isKartInRoundTrigger = false;
     }
   }
+
+  function increaseLapCount() {
+
+    lapCount++;
+
+    updateLapDisplay();
+  }
+
+  function updateLapDisplay() {
+    lapDisplay.innerHTML = "Lap Count: " + lapCount;
+  }
 }
-
-

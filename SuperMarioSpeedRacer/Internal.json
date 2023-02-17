@@ -31841,7 +31841,258 @@
                   "name": "Coins",
                   "active": true,
                   "components": {},
-                  "children": []
+                  "children": [
+                    {
+                      "ƒ.GraphInstance": {
+                        "deserializeFromSource": true,
+                        "name": "PRF_Coin",
+                        "idSource": "Graph|2023-02-17T23:45:42.374Z|74150"
+                      }
+                    },
+                    {
+                      "ƒ.Node": {
+                        "name": "PRF_Coin",
+                        "active": true,
+                        "components": {
+                          "ComponentMesh": [
+                            {
+                              "ƒ.ComponentMesh": {
+                                "idMesh": "MeshCube|2023-02-17T23:23:50.410Z|80190",
+                                "pivot": {
+                                  "translation": "[0, 0, 0]",
+                                  "rotation": "[0, 0, 0]",
+                                  "scaling": "[1, 1, 1]"
+                                },
+                                "Component": {
+                                  "active": true
+                                }
+                              }
+                            }
+                          ],
+                          "ComponentMaterial": [
+                            {
+                              "ƒ.ComponentMaterial": {
+                                "sortForAlpha": false,
+                                "clrPrimary": "[1, 1, 1, 1]",
+                                "clrSecondary": "[1, 1, 1, 1]",
+                                "pivot": {
+                                  "translation": "[0, 0]",
+                                  "rotation": 0,
+                                  "scaling": "[1, 1]"
+                                },
+                                "Component": {
+                                  "active": true
+                                },
+                                "idMaterial": "Material|2023-02-17T23:24:10.036Z|47357"
+                              }
+                            }
+                          ],
+                          "ComponentTransform": [
+                            {
+                              "ƒ.ComponentTransform": {
+                                "local": {
+                                  "translation": "[0, 2, 20]",
+                                  "rotation": "[0, 0, 0]",
+                                  "scaling": "[1, 1, 1]"
+                                },
+                                "Component": {
+                                  "active": true
+                                }
+                              }
+                            }
+                          ],
+                          "ComponentRigidbody": [
+                            {
+                              "ƒ.ComponentRigidbody": {
+                                "initialization": "TO_PIVOT",
+                                "friction": 0.2,
+                                "restitution": 0.2,
+                                "mass": 1,
+                                "dampTranslation": 0.1,
+                                "dampRotation": 0.1,
+                                "effectGravity": 1,
+                                "typeBody": "STATIC",
+                                "typeCollider": "CUBE",
+                                "isTrigger": true,
+                                "id": 2,
+                                "pivot": {
+                                  "translation": "[0, 0, 0]",
+                                  "rotation": "[0, 0, 0]",
+                                  "scaling": "[1, 1, 1]"
+                                },
+                                "Component": {
+                                  "active": true
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        "children": []
+                      }
+                    },
+                    {
+                      "ƒ.Node": {
+                        "name": "PRF_Coin",
+                        "active": true,
+                        "components": {
+                          "ComponentMesh": [
+                            {
+                              "ƒ.ComponentMesh": {
+                                "idMesh": "MeshCube|2023-02-17T23:23:50.410Z|80190",
+                                "pivot": {
+                                  "translation": "[0, 0, 0]",
+                                  "rotation": "[0, 0, 0]",
+                                  "scaling": "[1, 1, 1]"
+                                },
+                                "Component": {
+                                  "active": true
+                                }
+                              }
+                            }
+                          ],
+                          "ComponentMaterial": [
+                            {
+                              "ƒ.ComponentMaterial": {
+                                "sortForAlpha": false,
+                                "clrPrimary": "[1, 1, 1, 1]",
+                                "clrSecondary": "[1, 1, 1, 1]",
+                                "pivot": {
+                                  "translation": "[0, 0]",
+                                  "rotation": 0,
+                                  "scaling": "[1, 1]"
+                                },
+                                "Component": {
+                                  "active": true
+                                },
+                                "idMaterial": "Material|2023-02-17T23:24:10.036Z|47357"
+                              }
+                            }
+                          ],
+                          "ComponentTransform": [
+                            {
+                              "ƒ.ComponentTransform": {
+                                "local": {
+                                  "translation": "[0, 2, 43]",
+                                  "rotation": "[0, 0, 0]",
+                                  "scaling": "[1, 1, 1]"
+                                },
+                                "Component": {
+                                  "active": true
+                                }
+                              }
+                            }
+                          ],
+                          "ComponentRigidbody": [
+                            {
+                              "ƒ.ComponentRigidbody": {
+                                "initialization": "TO_PIVOT",
+                                "friction": 0.2,
+                                "restitution": 0.2,
+                                "mass": 1,
+                                "dampTranslation": 0.1,
+                                "dampRotation": 0.1,
+                                "effectGravity": 1,
+                                "typeBody": "STATIC",
+                                "typeCollider": "CUBE",
+                                "isTrigger": true,
+                                "id": 2,
+                                "pivot": {
+                                  "translation": "[0, 0, 0]",
+                                  "rotation": "[0, 0, 0]",
+                                  "scaling": "[1, 1, 1]"
+                                },
+                                "Component": {
+                                  "active": true
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        "children": []
+                      }
+                    },
+                    {
+                      "ƒ.Node": {
+                        "name": "PRF_Coin",
+                        "active": true,
+                        "components": {
+                          "ComponentMesh": [
+                            {
+                              "ƒ.ComponentMesh": {
+                                "idMesh": "MeshCube|2023-02-17T23:23:50.410Z|80190",
+                                "pivot": {
+                                  "translation": "[0, 0, 0]",
+                                  "rotation": "[0, 0, 0]",
+                                  "scaling": "[1, 1, 1]"
+                                },
+                                "Component": {
+                                  "active": true
+                                }
+                              }
+                            }
+                          ],
+                          "ComponentMaterial": [
+                            {
+                              "ƒ.ComponentMaterial": {
+                                "sortForAlpha": false,
+                                "clrPrimary": "[1, 1, 1, 1]",
+                                "clrSecondary": "[1, 1, 1, 1]",
+                                "pivot": {
+                                  "translation": "[0, 0]",
+                                  "rotation": 0,
+                                  "scaling": "[1, 1]"
+                                },
+                                "Component": {
+                                  "active": true
+                                },
+                                "idMaterial": "Material|2023-02-17T23:24:10.036Z|47357"
+                              }
+                            }
+                          ],
+                          "ComponentTransform": [
+                            {
+                              "ƒ.ComponentTransform": {
+                                "local": {
+                                  "translation": "[0, 2, 73]",
+                                  "rotation": "[0, 0, 0]",
+                                  "scaling": "[1, 1, 1]"
+                                },
+                                "Component": {
+                                  "active": true
+                                }
+                              }
+                            }
+                          ],
+                          "ComponentRigidbody": [
+                            {
+                              "ƒ.ComponentRigidbody": {
+                                "initialization": "TO_PIVOT",
+                                "friction": 0.2,
+                                "restitution": 0.2,
+                                "mass": 1,
+                                "dampTranslation": 0.1,
+                                "dampRotation": 0.1,
+                                "effectGravity": 1,
+                                "typeBody": "STATIC",
+                                "typeCollider": "CUBE",
+                                "isTrigger": true,
+                                "id": 2,
+                                "pivot": {
+                                  "translation": "[0, 0, 0]",
+                                  "rotation": "[0, 0, 0]",
+                                  "scaling": "[1, 1, 1]"
+                                },
+                                "Component": {
+                                  "active": true
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        "children": []
+                      }
+                    }
+                  ]
                 }
               }
             ]
@@ -31958,6 +32209,108 @@
           "color": "[0.8823529411764706, 1, 0, 1]"
         }
       }
+    }
+  },
+  "MeshCube|2023-02-17T23:23:50.410Z|80190": {
+    "ƒ.MeshCube": {
+      "idResource": "MeshCube|2023-02-17T23:23:50.410Z|80190",
+      "name": "AS_Coin",
+      "type": "MeshCube"
+    }
+  },
+  "Material|2023-02-17T23:24:10.036Z|47357": {
+    "ƒ.Material": {
+      "name": "M_Coin",
+      "idResource": "Material|2023-02-17T23:24:10.036Z|47357",
+      "shader": "ShaderLitTextured",
+      "coat": {
+        "ƒ.CoatTextured": {
+          "color": "[1, 0.9333333333333333, 0, 1]"
+        }
+      }
+    }
+  },
+  "Graph|2023-02-17T23:45:42.374Z|74150": {
+    "ƒ.Graph": {
+      "name": "PRF_Coin",
+      "active": true,
+      "components": {
+        "ComponentMesh": [
+          {
+            "ƒ.ComponentMesh": {
+              "idMesh": "MeshCube|2023-02-17T23:23:50.410Z|80190",
+              "pivot": {
+                "translation": "[0, 0, 0]",
+                "rotation": "[0, 0, 0]",
+                "scaling": "[1, 1, 1]"
+              },
+              "Component": {
+                "active": true
+              }
+            }
+          }
+        ],
+        "ComponentMaterial": [
+          {
+            "ƒ.ComponentMaterial": {
+              "sortForAlpha": false,
+              "clrPrimary": "[1, 1, 1, 1]",
+              "clrSecondary": "[1, 1, 1, 1]",
+              "pivot": {
+                "translation": "[0, 0]",
+                "rotation": 0,
+                "scaling": "[1, 1]"
+              },
+              "Component": {
+                "active": true
+              },
+              "idMaterial": "Material|2023-02-17T23:24:10.036Z|47357"
+            }
+          }
+        ],
+        "ComponentTransform": [
+          {
+            "ƒ.ComponentTransform": {
+              "local": {
+                "translation": "[0, 2, 0]",
+                "rotation": "[0, 0, 0]",
+                "scaling": "[1, 1, 1]"
+              },
+              "Component": {
+                "active": true
+              }
+            }
+          }
+        ],
+        "ComponentRigidbody": [
+          {
+            "ƒ.ComponentRigidbody": {
+              "initialization": "TO_PIVOT",
+              "friction": 0.2,
+              "restitution": 0.2,
+              "mass": 1,
+              "dampTranslation": 0.1,
+              "dampRotation": 0.1,
+              "effectGravity": 1,
+              "typeBody": "STATIC",
+              "typeCollider": "CUBE",
+              "isTrigger": true,
+              "id": 2,
+              "pivot": {
+                "translation": "[0, 0, 0]",
+                "rotation": "[0, 0, 0]",
+                "scaling": "[1, 1, 1]"
+              },
+              "Component": {
+                "active": true
+              }
+            }
+          }
+        ]
+      },
+      "children": [],
+      "idResource": "Graph|2023-02-17T23:45:42.374Z|74150",
+      "type": "Graph"
     }
   }
 }
