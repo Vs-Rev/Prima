@@ -21,10 +21,13 @@ namespace Script {
     
     kart = new Kart();
 
-    viewport.camera.mtxPivot.translateY(3.5);
-    viewport.camera.mtxPivot.translateZ(15);
+    //viewport.camera.mtxPivot.translateY(3.5);
+    viewport.camera.mtxPivot.translateY(4);
+    //viewport.camera.mtxPivot.translateZ(15);
+    viewport.camera.mtxPivot.translateZ(22);
     viewport.camera.mtxPivot.rotateY(180);
-    viewport.camera.mtxPivot.rotateX(15);
+    //viewport.camera.mtxPivot.rotateX(15);
+    viewport.camera.mtxPivot.rotateX(4);
 
 
 
