@@ -9,7 +9,7 @@ OMB 6
 Kurs: PRIMA  
 Dozent: Prof. Jirka Dell'Oro-Friedl  
 Executable: https://vs-rev.github.io/Prima/SuperMarioSpeedRacer/index.html 
-Source-Code: https://github.com/Vs-Rev/Prima/tree/main/SuperMarioSpeedRacer
+/n Source-Code: https://github.com/Vs-Rev/Prima/tree/main/SuperMarioSpeedRacer
 Design-Dokument: https://github.com/Vs-Rev/Prima/blob/main/SuperMarioSpeedRacer/Documents/PRIMA_Spielekonzept_MarioKart_VasiliiGurev_263754.pdf
 Anleitung:   
 Fahren -> W - Gas Geben, D - Bremsen, A - Drehung nach links, D - Drehung nach rechts
