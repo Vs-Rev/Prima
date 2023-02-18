@@ -457,7 +457,7 @@ var Script;
         constructor(_timer) {
             super();
             let vuiHTML = document.querySelector("#vui");
-            vuiHTML.setAttribute("style", "font-size: 25px");
+            vuiHTML.setAttribute("style", "font-size: 20px");
             let customElement = ƒUI.Generator.createInterfaceFromMutable(this);
             vuiHTML.appendChild(customElement);
             this.controller = new ƒUI.Controller(this, customElement);
@@ -465,7 +465,7 @@ var Script;
             this.controller.updateUserInterface();
         }
         async gameWonDisplay() {
-            await ƒUI.Dialog.prompt(this, true, "You won the game!!! Here are your stats:", "Play again?");
+            await ƒUI.Dialog.prompt(this, true, "CONGRATULATIONS - Your stats:", "?");
         }
         updateMutator(_mutator) {
             console.log("updateMutator");

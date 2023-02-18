@@ -16,7 +16,7 @@ namespace Script {
       super();
 
       let vuiHTML: HTMLParagraphElement = document.querySelector("#vui");
-      vuiHTML.setAttribute("style", "font-size: 25px");
+      vuiHTML.setAttribute("style", "font-size: 20px");
 
       let customElement: HTMLDivElement=  ƒUI.Generator.createInterfaceFromMutable(this);
       vuiHTML.appendChild(customElement);
@@ -27,7 +27,7 @@ namespace Script {
     }
 
     public async gameWonDisplay(): Promise<void> {
-      await ƒUI.Dialog.prompt(this, true, "You won the game!!! Here are your stats:", "Play again?");
+      await ƒUI.Dialog.prompt(this, true, "CONGRATULATIONS - Your stats:", "?");
     }
 
 
