@@ -19,7 +19,11 @@ Anfängliches Konzept-Dokument: https://github.com/Vs-Rev/Prima/blob/main/SuperM
 
 
 Anleitung:   
-Fahren -> W - Gas Geben, D - Bremsen, A - Drehung nach links, D - Drehung nach rechts
+Fahren 
+-> W - Gas Geben
+-> S - Bremsen
+-> A - Drehung nach links
+-> D - Drehung nach rechts
 
 Das Ziel ist es, 3 Runden in Bestzeit zu fahren und dabei alle Münzen einzusammeln.    
 
