@@ -1,10 +1,10 @@
 # PRIMA
-Abgaben und Übungen aus Prototyping interaktiver Medienapplikationen und Games im Wintersemester 2023 an der HFU 
+Abgaben und Übungen aus Prototyping interaktiver Medienapplikationen und Games im Wintersemester 2022/23 an der HFU 
 
 
 Titel: Super Mario Speed Racer  
 Autor: Vasilii Gurev 
-Wintersemester 2023  
+Wintersemester 2022/23  
 OMB 6
 Kurs: PRIMA  
 Dozent: Prof. Jirka Dell'Oro-Friedl  
