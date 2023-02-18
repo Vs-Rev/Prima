@@ -2,6 +2,7 @@ namespace Script {
 
   import ƒ = FudgeCore;
 
+
   ƒ.Debug.info("Main Program Template running!");
 
   let viewport: ƒ.Viewport;
@@ -12,23 +13,17 @@ namespace Script {
 
   let rbRoundTrigger: ƒ.ComponentRigidbody;
 
-  let lapCount: number = 0;
   let maxLapCount: number = 2;
-  let lapDisplay: HTMLParagraphElement;
 
-  let coinCount: number = 0;
-  let coinDisplay: HTMLParagraphElement;
 
   let timer: ƒ.Timer;
   let millisecondsSinceStart: number = 0;
-  let timeDisplay: HTMLParagraphElement;
 
   let isKartInRoundTrigger: boolean;
 
   let items: ƒ.Node;
 
   let coinsContainer: ƒ.Node;
-  let coinsList: ƒ.ComponentRigidbody[] = [];
 
   let gameWon: boolean;
 
@@ -36,6 +31,13 @@ namespace Script {
   interface ExternalData {
     [name: string]: number;
   }
+
+  let statistics: Statistics;
+
+  let soundsContainer: ƒ.Node;
+
+  let soundCollect: ƒ.ComponentAudio;
+  let soundMusik: ƒ.ComponentAudio;
 
   ///////////////////////////////////////////////////////
   //Start/Init
@@ -48,18 +50,17 @@ namespace Script {
     viewport = _event.detail;
     root = viewport.getBranch();
 
-
+    statistics = new Statistics();
 
     adjustCamera();
 
     buildKart();
 
-    querySelectDisplays();
-
     initTrigger();
 
     items = root.getChildrenByName("Items")[0];
 
+    initSounds();
 
     initCoins();
 
@@ -70,13 +71,24 @@ namespace Script {
   }
 
 
-
   async function getExternalData(): Promise<void> {
 
     let response: Response = await fetch("externalData.json");
     console.log(response);
     externalData = await response.json();
   }
+
+
+  function initSounds() {
+
+    soundsContainer = root.getChildrenByName("Sounds")[0];
+
+    soundCollect = soundsContainer.getChildrenByName("Collect")[0].getComponent(ƒ.ComponentAudio);
+    soundMusik = soundsContainer.getChildrenByName("Musik")[0].getComponent(ƒ.ComponentAudio);
+
+    soundMusik.play(true);
+  }
+
 
 
   function initStartTimer() {
@@ -93,10 +105,10 @@ namespace Script {
   }
 
   function onCoinEnter(event: CustomEvent) {
-    
-    coinCount++;
 
-    updateCoinDisplay();
+    statistics.coinCount = Number.parseInt(statistics.coinCount) + 1 + "";
+
+    soundCollect.play(true);
 
     coinsContainer.removeChild(event.detail);
   }
@@ -105,13 +117,6 @@ namespace Script {
 
     rbRoundTrigger = root.getChildrenByName("RoundTrigger")[0].getComponent(ƒ.ComponentRigidbody);
     rbRoundTrigger.collisionMask = ƒ.COLLISION_GROUP.GROUP_5;
-  }
-
-  function querySelectDisplays() {
-
-    lapDisplay = <HTMLParagraphElement>document.querySelector("#lapDisplay");
-    coinDisplay = <HTMLParagraphElement>document.querySelector("#coinDisplay");
-    timeDisplay = <HTMLParagraphElement>document.querySelector("#timeDisplay");
   }
 
   function buildKart() {
@@ -135,13 +140,8 @@ namespace Script {
 
   function update(_event: Event): void {
 
-
     if (ƒ.Keyboard.isPressedOne([ƒ.KEYBOARD_CODE.BACKSPACE])) {
-
-      lapCount++;
-
       increaseLapCount();
-
     }
 
     if (gameWon) {
@@ -151,9 +151,9 @@ namespace Script {
 
     kart.update();
 
-    try{
+    try {
       ƒ.Physics.simulate();  // if physics is included and used
-    } catch (Error){
+    } catch (Error) {
       console.warn(Error);
     }
 
@@ -197,13 +197,13 @@ namespace Script {
 
   function increaseLapCount() {
 
-    lapCount++;
+    statistics.lapCount = Number.parseInt(statistics.lapCount) + 1 + "";
 
-    if (lapCount > maxLapCount) {
+    if (Number.parseInt(statistics.lapCount) > maxLapCount) {
       gameWinEnd();
     }
 
-    updateLapDisplay();
+    //updateLapDisplay();
   }
 
   function gameWinEnd() {
@@ -212,6 +212,7 @@ namespace Script {
 
     gameWon = true;
 
+    statistics.gameWonDisplay();
     //let saveData: Data = new Data(coinCount, millisecondsSinceStart);
     //saveData.serialize();
   }
@@ -221,9 +222,11 @@ namespace Script {
   //display updates
   ///////////////////////////////////////////////////////
 
+  /*
   function updateLapDisplay(): void {
     lapDisplay.innerHTML = "Lap Count: " + lapCount;
   }
+*/
 
   function updateTimerDisplay(): void {
 
@@ -232,15 +235,15 @@ namespace Script {
     let milliseconds: number = millisecondsSinceStart % 1000;
     let seconds: number = Math.floor(tempSeconds) % 60;
     let minutes: number = tempSeconds / 60;
+    /*
+       timeDisplay.innerHTML = "Time: " + Math.floor(minutes) + ":" + seconds + ":" + milliseconds;
+     */
 
-    timeDisplay.innerHTML = "Time: " + Math.floor(minutes) + ":" + seconds + ":" + milliseconds;
+    statistics.time = "Time: " + Math.floor(minutes) + ":" + seconds + ":" + milliseconds;
   }
-
-  function updateCoinDisplay() {
-    coinDisplay.innerHTML = "Coin Count: " + coinCount;
-  }
+  /*
+    function updateCoinDisplay() {
+      coinDisplay.innerHTML = "Coin Count: " + coinCount;
+    }
+    */
 }
-
-
-
-

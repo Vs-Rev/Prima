@@ -43,3 +43,16 @@ declare namespace Script {
 }
 declare namespace Script {
 }
+declare namespace Script {
+    import ƒ = FudgeCore;
+    class Statistics extends ƒ.Mutable {
+        lapCount: string;
+        time: string;
+        coinCount: string;
+        private controller;
+        constructor(_timer?: number);
+        gameWonDisplay(): Promise<void>;
+        updateMutator(_mutator: ƒ.Mutator): void;
+        protected reduceMutator(_mutator: ƒ.Mutator): void;
+    }
+}
