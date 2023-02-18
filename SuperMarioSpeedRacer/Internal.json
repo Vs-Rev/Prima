@@ -30649,7 +30649,7 @@
                             {
                               "ƒ.ComponentTransform": {
                                 "local": {
-                                  "translation": "[0, 5.799999713897705, 92]",
+                                  "translation": "[0, 5.5, 92]",
                                   "rotation": "[0, 0, 0]",
                                   "scaling": "[1, 1, 1]"
                                 },
@@ -30827,7 +30827,7 @@
                             {
                               "ƒ.ComponentTransform": {
                                 "local": {
-                                  "translation": "[0, 1.7999992370605469, 183]",
+                                  "translation": "[0, 1.4999994039535522, 183]",
                                   "rotation": "[0, 0, 0]",
                                   "scaling": "[1, 1, 1]"
                                 },
@@ -30916,7 +30916,7 @@
                             {
                               "ƒ.ComponentTransform": {
                                 "local": {
-                                  "translation": "[0, 1.7999992370605469, 223]",
+                                  "translation": "[0, 1.2999992370605469, 223]",
                                   "rotation": "[0, 0, 0]",
                                   "scaling": "[1, 1, 1]"
                                 },
@@ -31005,7 +31005,7 @@
                             {
                               "ƒ.ComponentTransform": {
                                 "local": {
-                                  "translation": "[0, 1.7999992370605469, 253]",
+                                  "translation": "[0, 1.2999991178512573, 253]",
                                   "rotation": "[0, 0, 0]",
                                   "scaling": "[1, 1, 1]"
                                 },
@@ -31094,7 +31094,7 @@
                             {
                               "ƒ.ComponentTransform": {
                                 "local": {
-                                  "translation": "[32, 1.7999992370605469, 273]",
+                                  "translation": "[32, 1.2999991178512573, 273]",
                                   "rotation": "[0, 0, 0]",
                                   "scaling": "[1, 1, 1]"
                                 },
@@ -31183,7 +31183,7 @@
                             {
                               "ƒ.ComponentTransform": {
                                 "local": {
-                                  "translation": "[72, 1.7999992370605469, 273]",
+                                  "translation": "[72, 1.2999991178512573, 273]",
                                   "rotation": "[0, 0, 0]",
                                   "scaling": "[1, 1, 1]"
                                 },
@@ -31215,6 +31215,14 @@
                                 "Component": {
                                   "active": true
                                 }
+                              }
+                            }
+                          ],
+                          "Coin": [
+                            {
+                              "Script.Coin": {
+                                "active": true,
+                                "message": "Coin added to "
                               }
                             }
                           ]
@@ -31298,85 +31306,12 @@
                                 }
                               }
                             }
-                          ]
-                        },
-                        "children": []
-                      }
-                    },
-                    {
-                      "ƒ.Node": {
-                        "name": "PRF_Coin",
-                        "active": true,
-                        "components": {
-                          "ComponentMesh": [
-                            {
-                              "ƒ.ComponentMesh": {
-                                "idMesh": "MeshCube|2023-02-17T23:23:50.410Z|80190",
-                                "pivot": {
-                                  "translation": "[0, 0, 0]",
-                                  "rotation": "[0, 0, 0]",
-                                  "scaling": "[1, 1, 1]"
-                                },
-                                "Component": {
-                                  "active": true
-                                }
-                              }
-                            }
                           ],
-                          "ComponentMaterial": [
+                          "Coin": [
                             {
-                              "ƒ.ComponentMaterial": {
-                                "sortForAlpha": false,
-                                "clrPrimary": "[1, 1, 1, 1]",
-                                "clrSecondary": "[1, 1, 1, 1]",
-                                "pivot": {
-                                  "translation": "[0, 0]",
-                                  "rotation": 0,
-                                  "scaling": "[1, 1]"
-                                },
-                                "Component": {
-                                  "active": true
-                                },
-                                "idMaterial": "Material|2023-02-17T23:24:10.036Z|47357"
-                              }
-                            }
-                          ],
-                          "ComponentTransform": [
-                            {
-                              "ƒ.ComponentTransform": {
-                                "local": {
-                                  "translation": "[242, 11.799999237060547, 273]",
-                                  "rotation": "[0, 0, 0]",
-                                  "scaling": "[1, 1, 1]"
-                                },
-                                "Component": {
-                                  "active": true
-                                }
-                              }
-                            }
-                          ],
-                          "ComponentRigidbody": [
-                            {
-                              "ƒ.ComponentRigidbody": {
-                                "initialization": "TO_PIVOT",
-                                "friction": 0.2,
-                                "restitution": 0.2,
-                                "mass": 1,
-                                "dampTranslation": 0.1,
-                                "dampRotation": 0.1,
-                                "effectGravity": 1,
-                                "typeBody": "STATIC",
-                                "typeCollider": "CUBE",
-                                "isTrigger": true,
-                                "id": 2,
-                                "pivot": {
-                                  "translation": "[0, 0, 0]",
-                                  "rotation": "[0, 0, 0]",
-                                  "scaling": "[1, 1, 1]"
-                                },
-                                "Component": {
-                                  "active": true
-                                }
+                              "Script.Coin": {
+                                "active": true,
+                                "message": "Coin added to "
                               }
                             }
                           ]
@@ -31426,7 +31361,7 @@
                             {
                               "ƒ.ComponentTransform": {
                                 "local": {
-                                  "translation": "[272, 15.499999046325684, 273]",
+                                  "translation": "[242, 11.90000057220459, 273]",
                                   "rotation": "[0, 0, 0]",
                                   "scaling": "[1, 1, 1]"
                                 },
@@ -31458,6 +31393,14 @@
                                 "Component": {
                                   "active": true
                                 }
+                              }
+                            }
+                          ],
+                          "Coin": [
+                            {
+                              "Script.Coin": {
+                                "active": true,
+                                "message": "Coin added to "
                               }
                             }
                           ]
@@ -31507,7 +31450,7 @@
                             {
                               "ƒ.ComponentTransform": {
                                 "local": {
-                                  "translation": "[322, 15.499999046325684, 263]",
+                                  "translation": "[272, 15, 273]",
                                   "rotation": "[0, 0, 0]",
                                   "scaling": "[1, 1, 1]"
                                 },
@@ -31539,6 +31482,14 @@
                                 "Component": {
                                   "active": true
                                 }
+                              }
+                            }
+                          ],
+                          "Coin": [
+                            {
+                              "Script.Coin": {
+                                "active": true,
+                                "message": "Coin added to "
                               }
                             }
                           ]
@@ -31588,7 +31539,7 @@
                             {
                               "ƒ.ComponentTransform": {
                                 "local": {
-                                  "translation": "[332, 15.499999046325684, 233]",
+                                  "translation": "[332, 14.999998092651367, 233]",
                                   "rotation": "[0, 0, 0]",
                                   "scaling": "[1, 1, 1]"
                                 },
@@ -31620,6 +31571,14 @@
                                 "Component": {
                                   "active": true
                                 }
+                              }
+                            }
+                          ],
+                          "Coin": [
+                            {
+                              "Script.Coin": {
+                                "active": true,
+                                "message": "Coin added to "
                               }
                             }
                           ]
@@ -31669,7 +31628,7 @@
                             {
                               "ƒ.ComponentTransform": {
                                 "local": {
-                                  "translation": "[312, 15.499999046325684, 203]",
+                                  "translation": "[312, 14.999999046325684, 203]",
                                   "rotation": "[0, 0, 0]",
                                   "scaling": "[1, 1, 1]"
                                 },
@@ -31701,6 +31660,14 @@
                                 "Component": {
                                   "active": true
                                 }
+                              }
+                            }
+                          ],
+                          "Coin": [
+                            {
+                              "Script.Coin": {
+                                "active": true,
+                                "message": "Coin added to "
                               }
                             }
                           ]
@@ -31750,7 +31717,7 @@
                             {
                               "ƒ.ComponentTransform": {
                                 "local": {
-                                  "translation": "[274, 15.499999046325684, 207]",
+                                  "translation": "[274, 14.999998092651367, 207]",
                                   "rotation": "[0, 0, 0]",
                                   "scaling": "[1, 1, 1]"
                                 },
@@ -31782,6 +31749,14 @@
                                 "Component": {
                                   "active": true
                                 }
+                              }
+                            }
+                          ],
+                          "Coin": [
+                            {
+                              "Script.Coin": {
+                                "active": true,
+                                "message": "Coin added to "
                               }
                             }
                           ]
@@ -31831,7 +31806,7 @@
                             {
                               "ƒ.ComponentTransform": {
                                 "local": {
-                                  "translation": "[204, 2, 126]",
+                                  "translation": "[204, 1.3000000715255737, 126]",
                                   "rotation": "[0, 0, 0]",
                                   "scaling": "[1, 1, 1]"
                                 },
@@ -31863,6 +31838,14 @@
                                 "Component": {
                                   "active": true
                                 }
+                              }
+                            }
+                          ],
+                          "Coin": [
+                            {
+                              "Script.Coin": {
+                                "active": true,
+                                "message": "Coin added to "
                               }
                             }
                           ]
@@ -31912,7 +31895,7 @@
                             {
                               "ƒ.ComponentTransform": {
                                 "local": {
-                                  "translation": "[204, 2, 82]",
+                                  "translation": "[204, 1.2999999523162842, 82]",
                                   "rotation": "[0, 0, 0]",
                                   "scaling": "[1, 1, 1]"
                                 },
@@ -31944,6 +31927,14 @@
                                 "Component": {
                                   "active": true
                                 }
+                              }
+                            }
+                          ],
+                          "Coin": [
+                            {
+                              "Script.Coin": {
+                                "active": true,
+                                "message": "Coin added to "
                               }
                             }
                           ]
@@ -31993,7 +31984,7 @@
                             {
                               "ƒ.ComponentTransform": {
                                 "local": {
-                                  "translation": "[184, 2, 51]",
+                                  "translation": "[184, 1.2999999523162842, 51]",
                                   "rotation": "[0, 0, 0]",
                                   "scaling": "[1, 1, 1]"
                                 },
@@ -32025,6 +32016,14 @@
                                 "Component": {
                                   "active": true
                                 }
+                              }
+                            }
+                          ],
+                          "Coin": [
+                            {
+                              "Script.Coin": {
+                                "active": true,
+                                "message": "Coin added to "
                               }
                             }
                           ]
@@ -32074,7 +32073,7 @@
                             {
                               "ƒ.ComponentTransform": {
                                 "local": {
-                                  "translation": "[144, 2, 43]",
+                                  "translation": "[144, 1.2999999523162842, 43]",
                                   "rotation": "[0, 0, 0]",
                                   "scaling": "[1, 1, 1]"
                                 },
@@ -32106,6 +32105,14 @@
                                 "Component": {
                                   "active": true
                                 }
+                              }
+                            }
+                          ],
+                          "Coin": [
+                            {
+                              "Script.Coin": {
+                                "active": true,
+                                "message": "Coin added to "
                               }
                             }
                           ]
@@ -32155,7 +32162,7 @@
                             {
                               "ƒ.ComponentTransform": {
                                 "local": {
-                                  "translation": "[124, 2, 13]",
+                                  "translation": "[124, 1.2999999523162842, 13]",
                                   "rotation": "[0, 0, 0]",
                                   "scaling": "[1, 1, 1]"
                                 },
@@ -32187,6 +32194,14 @@
                                 "Component": {
                                   "active": true
                                 }
+                              }
+                            }
+                          ],
+                          "Coin": [
+                            {
+                              "Script.Coin": {
+                                "active": true,
+                                "message": "Coin added to "
                               }
                             }
                           ]
@@ -32236,7 +32251,7 @@
                             {
                               "ƒ.ComponentTransform": {
                                 "local": {
-                                  "translation": "[144, 2, -29]",
+                                  "translation": "[144, 1.2999998331069946, -29]",
                                   "rotation": "[0, 0, 0]",
                                   "scaling": "[1, 1, 1]"
                                 },
@@ -32268,6 +32283,14 @@
                                 "Component": {
                                   "active": true
                                 }
+                              }
+                            }
+                          ],
+                          "Coin": [
+                            {
+                              "Script.Coin": {
+                                "active": true,
+                                "message": "Coin added to "
                               }
                             }
                           ]
@@ -32317,7 +32340,7 @@
                             {
                               "ƒ.ComponentTransform": {
                                 "local": {
-                                  "translation": "[184, 2, -40]",
+                                  "translation": "[184, 1.2999999523162842, -40]",
                                   "rotation": "[0, 0, 0]",
                                   "scaling": "[1, 1, 1]"
                                 },
@@ -32349,6 +32372,14 @@
                                 "Component": {
                                   "active": true
                                 }
+                              }
+                            }
+                          ],
+                          "Coin": [
+                            {
+                              "Script.Coin": {
+                                "active": true,
+                                "message": "Coin added to "
                               }
                             }
                           ]
@@ -32398,7 +32429,7 @@
                             {
                               "ƒ.ComponentTransform": {
                                 "local": {
-                                  "translation": "[214, 2, -70]",
+                                  "translation": "[214, 1.2999999523162842, -70]",
                                   "rotation": "[0, 0, 0]",
                                   "scaling": "[1, 1, 1]"
                                 },
@@ -32430,6 +32461,14 @@
                                 "Component": {
                                   "active": true
                                 }
+                              }
+                            }
+                          ],
+                          "Coin": [
+                            {
+                              "Script.Coin": {
+                                "active": true,
+                                "message": "Coin added to "
                               }
                             }
                           ]
@@ -32479,7 +32518,7 @@
                             {
                               "ƒ.ComponentTransform": {
                                 "local": {
-                                  "translation": "[204, 2, -100]",
+                                  "translation": "[204, 1.2999998331069946, -100]",
                                   "rotation": "[0, 0, 0]",
                                   "scaling": "[1, 1, 1]"
                                 },
@@ -32511,6 +32550,14 @@
                                 "Component": {
                                   "active": true
                                 }
+                              }
+                            }
+                          ],
+                          "Coin": [
+                            {
+                              "Script.Coin": {
+                                "active": true,
+                                "message": "Coin added to "
                               }
                             }
                           ]
@@ -32560,7 +32607,7 @@
                             {
                               "ƒ.ComponentTransform": {
                                 "local": {
-                                  "translation": "[164, 2, -120]",
+                                  "translation": "[164, 1.2999999523162842, -120]",
                                   "rotation": "[0, 0, 0]",
                                   "scaling": "[1, 1, 1]"
                                 },
@@ -32592,6 +32639,14 @@
                                 "Component": {
                                   "active": true
                                 }
+                              }
+                            }
+                          ],
+                          "Coin": [
+                            {
+                              "Script.Coin": {
+                                "active": true,
+                                "message": "Coin added to "
                               }
                             }
                           ]
@@ -32641,7 +32696,7 @@
                             {
                               "ƒ.ComponentTransform": {
                                 "local": {
-                                  "translation": "[105, 2, -108]",
+                                  "translation": "[105, 1.2999998331069946, -108]",
                                   "rotation": "[0, 0, 0]",
                                   "scaling": "[1, 1, 1]"
                                 },
@@ -32673,6 +32728,14 @@
                                 "Component": {
                                   "active": true
                                 }
+                              }
+                            }
+                          ],
+                          "Coin": [
+                            {
+                              "Script.Coin": {
+                                "active": true,
+                                "message": "Coin added to "
                               }
                             }
                           ]
@@ -32722,7 +32785,7 @@
                             {
                               "ƒ.ComponentTransform": {
                                 "local": {
-                                  "translation": "[65, 2, -128]",
+                                  "translation": "[65, 1.2999999523162842, -128]",
                                   "rotation": "[0, 0, 0]",
                                   "scaling": "[1, 1, 1]"
                                 },
@@ -32754,6 +32817,14 @@
                                 "Component": {
                                   "active": true
                                 }
+                              }
+                            }
+                          ],
+                          "Coin": [
+                            {
+                              "Script.Coin": {
+                                "active": true,
+                                "message": "Coin added to "
                               }
                             }
                           ]
@@ -32803,7 +32874,7 @@
                             {
                               "ƒ.ComponentTransform": {
                                 "local": {
-                                  "translation": "[15, 2, -108]",
+                                  "translation": "[15, 1.2999998331069946, -108]",
                                   "rotation": "[0, 0, 0]",
                                   "scaling": "[1, 1, 1]"
                                 },
@@ -32835,6 +32906,14 @@
                                 "Component": {
                                   "active": true
                                 }
+                              }
+                            }
+                          ],
+                          "Coin": [
+                            {
+                              "Script.Coin": {
+                                "active": true,
+                                "message": "Coin added to "
                               }
                             }
                           ]
@@ -32884,7 +32963,7 @@
                             {
                               "ƒ.ComponentTransform": {
                                 "local": {
-                                  "translation": "[0, 2, -88]",
+                                  "translation": "[0, 1.2999998331069946, -88]",
                                   "rotation": "[0, 0, 0]",
                                   "scaling": "[1, 1, 1]"
                                 },
@@ -32916,6 +32995,14 @@
                                 "Component": {
                                   "active": true
                                 }
+                              }
+                            }
+                          ],
+                          "Coin": [
+                            {
+                              "Script.Coin": {
+                                "active": true,
+                                "message": "Coin added to "
                               }
                             }
                           ]
@@ -32965,7 +33052,7 @@
                             {
                               "ƒ.ComponentTransform": {
                                 "local": {
-                                  "translation": "[0, 2, -48]",
+                                  "translation": "[0, 1.2999999523162842, -48]",
                                   "rotation": "[0, 0, 0]",
                                   "scaling": "[1, 1, 1]"
                                 },
@@ -32997,6 +33084,14 @@
                                 "Component": {
                                   "active": true
                                 }
+                              }
+                            }
+                          ],
+                          "Coin": [
+                            {
+                              "Script.Coin": {
+                                "active": true,
+                                "message": "Coin added to "
                               }
                             }
                           ]
@@ -33136,6 +33231,95 @@
                               "ƒ.ComponentTransform": {
                                 "local": {
                                   "translation": "[0, 1.100000023841858, 10]",
+                                  "rotation": "[0, 0, 0]",
+                                  "scaling": "[1, 1, 1]"
+                                },
+                                "Component": {
+                                  "active": true
+                                }
+                              }
+                            }
+                          ],
+                          "ComponentRigidbody": [
+                            {
+                              "ƒ.ComponentRigidbody": {
+                                "initialization": "TO_PIVOT",
+                                "friction": 0.2,
+                                "restitution": 0.2,
+                                "mass": 1,
+                                "dampTranslation": 0.1,
+                                "dampRotation": 0.1,
+                                "effectGravity": 1,
+                                "typeBody": "STATIC",
+                                "typeCollider": "CUBE",
+                                "isTrigger": true,
+                                "id": 2,
+                                "pivot": {
+                                  "translation": "[0, 0, 0]",
+                                  "rotation": "[0, 0, 0]",
+                                  "scaling": "[1, 1, 1]"
+                                },
+                                "Component": {
+                                  "active": true
+                                }
+                              }
+                            }
+                          ],
+                          "Coin": [
+                            {
+                              "Script.Coin": {
+                                "active": true,
+                                "message": "Coin added to "
+                              }
+                            }
+                          ]
+                        },
+                        "children": []
+                      }
+                    },
+                    {
+                      "ƒ.Node": {
+                        "name": "PRF_Coin",
+                        "active": true,
+                        "components": {
+                          "ComponentMesh": [
+                            {
+                              "ƒ.ComponentMesh": {
+                                "idMesh": "MeshCube|2023-02-17T23:23:50.410Z|80190",
+                                "pivot": {
+                                  "translation": "[0, 0, 0]",
+                                  "rotation": "[0, 0, 0]",
+                                  "scaling": "[1, 1, 1]"
+                                },
+                                "Component": {
+                                  "active": true
+                                }
+                              }
+                            }
+                          ],
+                          "ComponentMaterial": [
+                            {
+                              "ƒ.ComponentMaterial": {
+                                "sortForAlpha": false,
+                                "clrPrimary": "[1, 1, 1, 1]",
+                                "clrSecondary": "[1, 1, 1, 1]",
+                                "pivot": {
+                                  "translation": "[0, 0]",
+                                  "rotation": 0,
+                                  "scaling": "[1, 1]"
+                                },
+                                "Component": {
+                                  "active": true
+                                },
+                                "idMaterial": "Material|2023-02-17T23:24:10.036Z|47357"
+                              }
+                            }
+                          ],
+                          "ComponentTransform": [
+                            {
+                              "ƒ.ComponentTransform": {
+                                "local": {
+                                  "translation": "[322, 14.999999046325684, 263]",
                                   "rotation": "[0, 0, 0]",
                                   "scaling": "[1, 1, 1]"
                                 },

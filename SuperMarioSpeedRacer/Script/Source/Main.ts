@@ -66,7 +66,7 @@ namespace Script {
     root = viewport.getBranch();
 
     statistics = new Statistics();
-
+    
     adjustCamera();
 
     buildKart();

@@ -90,7 +90,7 @@ var Script;
             this.maxSteerAngle = maxSteerAngle;
             this.steeringSpeed = steeringSpeed;
             let cmpTransform = new ƒ.ComponentTransform();
-            cmpTransform.mtxLocal.translateY(0.5);
+            cmpTransform.mtxLocal.translateY(1.5);
             this.addComponent(cmpTransform);
             let mesh = new ƒ.MeshCube();
             let material = ƒ.Project.resources["Material|2023-02-17T06:10:18.236Z|44182"];
