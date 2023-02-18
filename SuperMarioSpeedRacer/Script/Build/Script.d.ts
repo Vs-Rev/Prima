@@ -1,5 +1,15 @@
 declare namespace Script {
     import ƒ = FudgeCore;
+    class Coin extends ƒ.ComponentScript {
+        static readonly iSubclass: number;
+        message: string;
+        constructor();
+        private onTriggerEnter;
+        hndEvent: (_event: Event) => void;
+    }
+}
+declare namespace Script {
+    import ƒ = FudgeCore;
     class Data implements ƒ.Serializable {
         private coinCount;
         private millisecondsSinceStart;

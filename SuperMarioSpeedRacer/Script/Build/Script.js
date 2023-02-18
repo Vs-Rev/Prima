@@ -2,6 +2,52 @@
 var Script;
 (function (Script) {
     var ƒ = FudgeCore;
+    ƒ.Project.registerScriptNamespace(Script); // Register the namespace to FUDGE for serialization
+    class Coin extends ƒ.ComponentScript {
+        // Register the script as component for use in the editor via drag&drop
+        static iSubclass = ƒ.Component.registerSubclass(Coin);
+        // Properties may be mutated by users in the editor via the automatically created user interface
+        message = "Coin added to ";
+        constructor() {
+            super();
+            // Don't start when running in editor
+            if (ƒ.Project.mode == ƒ.MODE.EDITOR)
+                return;
+            console.log("constructor coin");
+            // Listen to this component being added to or removed from a node
+            this.addEventListener("componentAdd" /* ƒ.EVENT.COMPONENT_ADD */, this.hndEvent);
+            //this.addEventListener(ƒ.EVENT.COMPONENT_REMOVE, this.hndEvent);
+            //this.addEventListener(ƒ.EVENT.NODE_DESERIALIZED, this.hndEvent);
+        }
+        onTriggerEnter(event) {
+            this.node.dispatchEvent(new CustomEvent("CoinTrigger", {
+                bubbles: true,
+                detail: this.node
+            }));
+            this.node.removeComponent(this);
+        }
+        // Activate the functions of this component as response to events
+        hndEvent = (_event) => {
+            switch (_event.type) {
+                case "componentAdd" /* ƒ.EVENT.COMPONENT_ADD */:
+                    this.node.getComponent(ƒ.ComponentRigidbody).addEventListener("TriggerEnteredCollision" /* ƒ.EVENT_PHYSICS.TRIGGER_ENTER */, this.onTriggerEnter);
+                    ƒ.Debug.log(this.message, this.node);
+                    break;
+                case "componentRemove" /* ƒ.EVENT.COMPONENT_REMOVE */:
+                    this.removeEventListener("componentAdd" /* ƒ.EVENT.COMPONENT_ADD */, this.hndEvent);
+                    this.removeEventListener("componentRemove" /* ƒ.EVENT.COMPONENT_REMOVE */, this.hndEvent);
+                    break;
+                case "nodeDeserialized" /* ƒ.EVENT.NODE_DESERIALIZED */:
+                    // if deserialized the node is now fully reconstructed and access to all its components and children is possible
+                    break;
+            }
+        };
+    }
+    Script.Coin = Coin;
+})(Script || (Script = {}));
+var Script;
+(function (Script) {
+    var ƒ = FudgeCore;
     class Data {
         coinCount;
         millisecondsSinceStart;
@@ -214,9 +260,13 @@ var Script;
         timer.active = true;
     }
     function initCoins() {
+        root.addEventListener("CoinTrigger", onCoinEnter);
         coinsContainer = items.getChildrenByName("Coins")[0];
-        let coins = coinsContainer.getChildrenByName("PRF_Coin");
-        coins.forEach(coin => coinsList.push(coin.getComponent(ƒ.ComponentRigidbody)));
+    }
+    function onCoinEnter(event) {
+        coinCount++;
+        updateCoinDisplay();
+        coinsContainer.removeChild(event.detail);
     }
     function initTrigger() {
         rbRoundTrigger = root.getChildrenByName("RoundTrigger")[0].getComponent(ƒ.ComponentRigidbody);
@@ -251,9 +301,13 @@ var Script;
             return;
         }
         kart.update();
-        ƒ.Physics.simulate(); // if physics is included and used
+        try {
+            ƒ.Physics.simulate(); // if physics is included and used
+        }
+        catch (Error) {
+            console.warn(Error);
+        }
         checkRoundDriveThrough();
-        updateCoins();
         viewport.draw();
         ƒ.AudioManager.default.update();
     }
@@ -306,22 +360,6 @@ var Script;
     }
     function updateCoinDisplay() {
         coinDisplay.innerHTML = "Coin Count: " + coinCount;
-    }
-    ///////////////////////////////////////////////////////
-    //coins
-    ///////////////////////////////////////////////////////
-    function updateCoins() {
-        coinsList.forEach(coin => checkTriggering(coin));
-    }
-    function checkTriggering(coin) {
-        if (coin.triggerings.length > 0) {
-            collectCoin(coin);
-        }
-    }
-    function collectCoin(coin) {
-        coinsContainer.removeChild(coin.node);
-        coinCount++;
-        updateCoinDisplay();
     }
 })(Script || (Script = {}));
 //# sourceMappingURL=Script.js.map

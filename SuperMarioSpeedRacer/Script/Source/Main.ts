@@ -49,6 +49,7 @@ namespace Script {
     root = viewport.getBranch();
 
 
+
     adjustCamera();
 
     buildKart();
@@ -59,6 +60,7 @@ namespace Script {
 
     items = root.getChildrenByName("Items")[0];
 
+
     initCoins();
 
     initStartTimer();
@@ -66,6 +68,7 @@ namespace Script {
     ƒ.Loop.addEventListener(ƒ.EVENT.LOOP_FRAME, update);
     ƒ.Loop.start();  // start the game loop to continously draw the viewport, update the audiosystem and drive the physics i/a
   }
+
 
 
   async function getExternalData(): Promise<void> {
@@ -85,9 +88,17 @@ namespace Script {
 
   function initCoins() {
 
+    root.addEventListener("CoinTrigger", onCoinEnter);
     coinsContainer = items.getChildrenByName("Coins")[0];
-    let coins: ƒ.Node[] = coinsContainer.getChildrenByName("PRF_Coin");
-    coins.forEach(coin => coinsList.push(coin.getComponent(ƒ.ComponentRigidbody)));
+  }
+
+  function onCoinEnter(event: CustomEvent) {
+    
+    coinCount++;
+
+    updateCoinDisplay();
+
+    coinsContainer.removeChild(event.detail);
   }
 
   function initTrigger() {
@@ -105,7 +116,7 @@ namespace Script {
 
   function buildKart() {
 
-    kart = new Kart(externalData["maxSpeed"], externalData["acceleration"],externalData["maxSteerAngle"],externalData["steeringSpeed"],externalData["mass"],externalData["friction"]);
+    kart = new Kart(externalData["maxSpeed"], externalData["acceleration"], externalData["maxSteerAngle"], externalData["steeringSpeed"], externalData["mass"], externalData["friction"]);
     kart.addChild(viewport.camera.node);
     root.addChild(kart);
   }
@@ -140,12 +151,13 @@ namespace Script {
 
     kart.update();
 
-    ƒ.Physics.simulate();  // if physics is included and used
-
+    try{
+      ƒ.Physics.simulate();  // if physics is included and used
+    } catch (Error){
+      console.warn(Error);
+    }
 
     checkRoundDriveThrough();
-
-    updateCoins();
 
     viewport.draw();
 
@@ -226,31 +238,6 @@ namespace Script {
 
   function updateCoinDisplay() {
     coinDisplay.innerHTML = "Coin Count: " + coinCount;
-  }
-
-  ///////////////////////////////////////////////////////
-  //coins
-  ///////////////////////////////////////////////////////
-
-  function updateCoins() {
-    coinsList.forEach(coin => checkTriggering(coin));
-  }
-
-  function checkTriggering(coin: ƒ.ComponentRigidbody) {
-
-    if (coin.triggerings.length > 0) {
-
-      collectCoin(coin);
-    }
-  }
-
-  function collectCoin(coin: ƒ.ComponentRigidbody) {
-
-    coinsContainer.removeChild(coin.node);
-
-    coinCount++;
-
-    updateCoinDisplay();
   }
 }
 

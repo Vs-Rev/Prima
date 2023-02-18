@@ -221,6 +221,17 @@
       }
     }
   },
+  "TextureImage|2023-02-18T06:13:47.545Z|41033": {
+    "ƒ.TextureImage": {
+      "url": "Ressources\\Textures\\Coin.png",
+      "type": "TextureImage",
+      "Texture": {
+        "idResource": "TextureImage|2023-02-18T06:13:47.545Z|41033",
+        "name": "T_Coin",
+        "mipmap": "CRISP"
+      }
+    }
+  },
   "Graph|2023-01-24T19:15:40.303Z|89789": {
     "ƒ.Graph": {
       "name": "Main",
@@ -30403,13 +30414,6 @@
                   "components": {},
                   "children": [
                     {
-                      "ƒ.GraphInstance": {
-                        "deserializeFromSource": true,
-                        "name": "PRF_Coin",
-                        "idSource": "Graph|2023-02-17T23:45:42.374Z|74150"
-                      }
-                    },
-                    {
                       "ƒ.Node": {
                         "name": "PRF_Coin",
                         "active": true,
@@ -30483,6 +30487,14 @@
                                 "Component": {
                                   "active": true
                                 }
+                              }
+                            }
+                          ],
+                          "Coin": [
+                            {
+                              "Script.Coin": {
+                                "active": true,
+                                "message": "Coin added to "
                               }
                             }
                           ]
@@ -30566,6 +30578,14 @@
                                 }
                               }
                             }
+                          ],
+                          "Coin": [
+                            {
+                              "Script.Coin": {
+                                "active": true,
+                                "message": "Coin added to "
+                              }
+                            }
                           ]
                         },
                         "children": []
@@ -30645,6 +30665,14 @@
                                 "Component": {
                                   "active": true
                                 }
+                              }
+                            }
+                          ],
+                          "Coin": [
+                            {
+                              "Script.Coin": {
+                                "active": true,
+                                "message": "Coin added to "
                               }
                             }
                           ]
@@ -30728,6 +30756,14 @@
                                 }
                               }
                             }
+                          ],
+                          "Coin": [
+                            {
+                              "Script.Coin": {
+                                "active": true,
+                                "message": "Coin added to "
+                              }
+                            }
                           ]
                         },
                         "children": []
@@ -30807,6 +30843,14 @@
                                 "Component": {
                                   "active": true
                                 }
+                              }
+                            }
+                          ],
+                          "Coin": [
+                            {
+                              "Script.Coin": {
+                                "active": true,
+                                "message": "Coin added to "
                               }
                             }
                           ]
@@ -30890,6 +30934,14 @@
                                 }
                               }
                             }
+                          ],
+                          "Coin": [
+                            {
+                              "Script.Coin": {
+                                "active": true,
+                                "message": "Coin added to "
+                              }
+                            }
                           ]
                         },
                         "children": []
@@ -30971,6 +31023,14 @@
                                 }
                               }
                             }
+                          ],
+                          "Coin": [
+                            {
+                              "Script.Coin": {
+                                "active": true,
+                                "message": "Coin added to "
+                              }
+                            }
                           ]
                         },
                         "children": []
@@ -31050,6 +31110,14 @@
                                 "Component": {
                                   "active": true
                                 }
+                              }
+                            }
+                          ],
+                          "Coin": [
+                            {
+                              "Script.Coin": {
+                                "active": true,
+                                "message": "Coin added to "
                               }
                             }
                           ]
@@ -32996,6 +33064,103 @@
                                 }
                               }
                             }
+                          ],
+                          "Coin": [
+                            {
+                              "Script.Coin": {
+                                "active": true,
+                                "message": "Coin added to "
+                              }
+                            }
+                          ]
+                        },
+                        "children": []
+                      }
+                    },
+                    {
+                      "ƒ.Node": {
+                        "name": "PRF_Coin",
+                        "active": true,
+                        "components": {
+                          "ComponentMesh": [
+                            {
+                              "ƒ.ComponentMesh": {
+                                "idMesh": "MeshCube|2023-02-17T23:23:50.410Z|80190",
+                                "pivot": {
+                                  "translation": "[0, 0, 0]",
+                                  "rotation": "[0, 0, 0]",
+                                  "scaling": "[1, 1, 1]"
+                                },
+                                "Component": {
+                                  "active": true
+                                }
+                              }
+                            }
+                          ],
+                          "ComponentMaterial": [
+                            {
+                              "ƒ.ComponentMaterial": {
+                                "sortForAlpha": false,
+                                "clrPrimary": "[1, 1, 1, 1]",
+                                "clrSecondary": "[1, 1, 1, 1]",
+                                "pivot": {
+                                  "translation": "[0, 0]",
+                                  "rotation": 0,
+                                  "scaling": "[1, 1]"
+                                },
+                                "Component": {
+                                  "active": true
+                                },
+                                "idMaterial": "Material|2023-02-17T23:24:10.036Z|47357"
+                              }
+                            }
+                          ],
+                          "ComponentTransform": [
+                            {
+                              "ƒ.ComponentTransform": {
+                                "local": {
+                                  "translation": "[0, 1.100000023841858, 10]",
+                                  "rotation": "[0, 0, 0]",
+                                  "scaling": "[1, 1, 1]"
+                                },
+                                "Component": {
+                                  "active": true
+                                }
+                              }
+                            }
+                          ],
+                          "ComponentRigidbody": [
+                            {
+                              "ƒ.ComponentRigidbody": {
+                                "initialization": "TO_PIVOT",
+                                "friction": 0.2,
+                                "restitution": 0.2,
+                                "mass": 1,
+                                "dampTranslation": 0.1,
+                                "dampRotation": 0.1,
+                                "effectGravity": 1,
+                                "typeBody": "STATIC",
+                                "typeCollider": "CUBE",
+                                "isTrigger": true,
+                                "id": 2,
+                                "pivot": {
+                                  "translation": "[0, 0, 0]",
+                                  "rotation": "[0, 0, 0]",
+                                  "scaling": "[1, 1, 1]"
+                                },
+                                "Component": {
+                                  "active": true
+                                }
+                              }
+                            }
+                          ],
+                          "Coin": [
+                            {
+                              "Script.Coin": {
+                                "active": true,
+                                "message": "Coin added to "
+                              }
+                            }
                           ]
                         },
                         "children": []
@@ -33201,17 +33366,6 @@
       "children": [],
       "idResource": "Graph|2023-02-17T23:45:42.374Z|74150",
       "type": "Graph"
-    }
-  },
-  "TextureImage|2023-02-18T06:13:47.545Z|41033": {
-    "ƒ.TextureImage": {
-      "url": "Ressources\\Textures\\Coin.png",
-      "type": "TextureImage",
-      "Texture": {
-        "idResource": "TextureImage|2023-02-18T06:13:47.545Z|41033",
-        "name": "T_Coin",
-        "mipmap": "CRISP"
-      }
     }
   }
 }
