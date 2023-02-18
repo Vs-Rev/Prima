@@ -15,7 +15,7 @@ Game-Design-Document: https://github.com/Vs-Rev/Prima/blob/main/SuperMarioSpeedR
 
 Source-Code: https://github.com/Vs-Rev/Prima/tree/main/SuperMarioSpeedRacer
 
-Design-Dokument: https://github.com/Vs-Rev/Prima/blob/main/SuperMarioSpeedRacer/Documents/PRIMA_Spielekonzept_MarioKart_VasiliiGurev_263754.pdf
+Anfängliches Konzept-Dokument: https://github.com/Vs-Rev/Prima/blob/main/SuperMarioSpeedRacer/Documents/PRIMA_Spielekonzept_MarioKart_VasiliiGurev_263754.pdf
 
 
 Anleitung:   
