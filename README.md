@@ -10,6 +10,9 @@ Kurs: PRIMA
 Dozent: Prof. Jirka Dell'Oro-Friedl  
 Executable: https://vs-rev.github.io/Prima/SuperMarioSpeedRacer/index.html 
 
+Game-Design-Document: https://github.com/Vs-Rev/Prima/blob/main/SuperMarioSpeedRacer/Documents/Game-Design-Document_Vasilii_Gurev_263754.pdf
+
+
 Source-Code: https://github.com/Vs-Rev/Prima/tree/main/SuperMarioSpeedRacer
 
 Design-Dokument: https://github.com/Vs-Rev/Prima/blob/main/SuperMarioSpeedRacer/Documents/PRIMA_Spielekonzept_MarioKart_VasiliiGurev_263754.pdf
