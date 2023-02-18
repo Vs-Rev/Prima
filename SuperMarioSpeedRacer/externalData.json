@@ -1,0 +1,8 @@
+{
+    "maxSpeed": 50,
+    "acceleration": 1500,
+    "maxSteerAngle": 65,
+    "steeringSpeed": 7,
+    "mass": 1,
+    "friction": 1
+}

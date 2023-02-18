@@ -5,7 +5,7 @@ namespace Script {
   ƒ.Debug.info("Main Program Template running!");
 
   let viewport: ƒ.Viewport;
-  document.addEventListener("interactiveViewportStarted", <EventListener>start);
+  document.addEventListener("interactiveViewportStarted", <EventListener><unknown>start);
 
   let root: ƒ.Node;
   let kart: Kart;
@@ -32,15 +32,22 @@ namespace Script {
 
   let gameWon: boolean;
 
+  let externalData: ExternalData;
+  interface ExternalData {
+    [name: string]: number;
+  }
 
   ///////////////////////////////////////////////////////
   //Start/Init
   ///////////////////////////////////////////////////////
 
-  function start(_event: CustomEvent): void {
+  async function start(_event: CustomEvent): Promise<void> {
+
+    await getExternalData();
 
     viewport = _event.detail;
     root = viewport.getBranch();
+
 
     adjustCamera();
 
@@ -60,36 +67,51 @@ namespace Script {
     ƒ.Loop.start();  // start the game loop to continously draw the viewport, update the audiosystem and drive the physics i/a
   }
 
+
+  async function getExternalData(): Promise<void> {
+
+    let response: Response = await fetch("externalData.json");
+    console.log(response);
+    externalData = await response.json();
+  }
+
+
   function initStartTimer() {
+
     let time: ƒ.Time = new ƒ.Time();
     timer = new ƒ.Timer(time, 100, 99999, onTimerTick);
     timer.active = true;
   }
 
   function initCoins() {
+
     coinsContainer = items.getChildrenByName("Coins")[0];
     let coins: ƒ.Node[] = coinsContainer.getChildrenByName("PRF_Coin");
     coins.forEach(coin => coinsList.push(coin.getComponent(ƒ.ComponentRigidbody)));
   }
 
   function initTrigger() {
+
     rbRoundTrigger = root.getChildrenByName("RoundTrigger")[0].getComponent(ƒ.ComponentRigidbody);
     rbRoundTrigger.collisionMask = ƒ.COLLISION_GROUP.GROUP_5;
   }
 
   function querySelectDisplays() {
+
     lapDisplay = <HTMLParagraphElement>document.querySelector("#lapDisplay");
     coinDisplay = <HTMLParagraphElement>document.querySelector("#coinDisplay");
     timeDisplay = <HTMLParagraphElement>document.querySelector("#timeDisplay");
   }
 
   function buildKart() {
-    kart = new Kart();
+
+    kart = new Kart(externalData["maxSpeed"], externalData["acceleration"],externalData["maxSteerAngle"],externalData["steeringSpeed"],externalData["mass"],externalData["friction"]);
     kart.addChild(viewport.camera.node);
     root.addChild(kart);
   }
 
   function adjustCamera() {
+
     viewport.camera.mtxPivot.translateY(4);
     viewport.camera.mtxPivot.translateZ(22);
     viewport.camera.mtxPivot.rotateY(180);
@@ -178,9 +200,8 @@ namespace Script {
 
     gameWon = true;
 
-    let saveData: Data = new Data(coinCount, millisecondsSinceStart);
-
-    saveData.serialize();
+    //let saveData: Data = new Data(coinCount, millisecondsSinceStart);
+    //saveData.serialize();
   }
 
 

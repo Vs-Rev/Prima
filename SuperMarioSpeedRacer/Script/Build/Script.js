@@ -37,8 +37,12 @@ var Script;
         steeringSpeed = 7;
         maxSteerAngle = 65; //80
         currentSteerAngle = 0;
-        constructor() {
+        constructor(maxSpeed, acceleration, maxSteerAngle, steeringSpeed, mass, friction) {
             super("Kart");
+            this.maxSpeed = maxSpeed;
+            this.acceleration = acceleration;
+            this.maxSteerAngle = maxSteerAngle;
+            this.steeringSpeed = steeringSpeed;
             let cmpTransform = new ƒ.ComponentTransform();
             cmpTransform.mtxLocal.translateY(0.5);
             this.addComponent(cmpTransform);
@@ -51,7 +55,8 @@ var Script;
             this.addComponent(cmpMaterial);
             this.rb = new ƒ.ComponentRigidbody();
             this.rb.typeBody = ƒ.BODY_TYPE.DYNAMIC;
-            this.rb.friction = 0.6;
+            this.rb.mass = mass;
+            this.rb.friction = friction;
             this.rb.effectGravity = 2;
             this.rb.effectRotation = new ƒ.Vector3(0, 0, 0);
             this.rb.restitution = 0;
@@ -180,10 +185,12 @@ var Script;
     let coinsContainer;
     let coinsList = [];
     let gameWon;
+    let externalData;
     ///////////////////////////////////////////////////////
     //Start/Init
     ///////////////////////////////////////////////////////
-    function start(_event) {
+    async function start(_event) {
+        await getExternalData();
         viewport = _event.detail;
         root = viewport.getBranch();
         adjustCamera();
@@ -195,6 +202,11 @@ var Script;
         initStartTimer();
         ƒ.Loop.addEventListener("loopFrame" /* ƒ.EVENT.LOOP_FRAME */, update);
         ƒ.Loop.start(); // start the game loop to continously draw the viewport, update the audiosystem and drive the physics i/a
+    }
+    async function getExternalData() {
+        let response = await fetch("externalData.json");
+        console.log(response);
+        externalData = await response.json();
     }
     function initStartTimer() {
         let time = new ƒ.Time();
@@ -216,7 +228,7 @@ var Script;
         timeDisplay = document.querySelector("#timeDisplay");
     }
     function buildKart() {
-        kart = new Script.Kart();
+        kart = new Script.Kart(externalData["maxSpeed"], externalData["acceleration"], externalData["maxSteerAngle"], externalData["steeringSpeed"], externalData["mass"], externalData["friction"]);
         kart.addChild(viewport.camera.node);
         root.addChild(kart);
     }
@@ -276,8 +288,8 @@ var Script;
     function gameWinEnd() {
         kart.getComponent(ƒ.ComponentRigidbody).typeBody = ƒ.BODY_TYPE.STATIC;
         gameWon = true;
-        let saveData = new Script.Data(coinCount, millisecondsSinceStart);
-        saveData.serialize();
+        //let saveData: Data = new Data(coinCount, millisecondsSinceStart);
+        //saveData.serialize();
     }
     ///////////////////////////////////////////////////////
     //display updates

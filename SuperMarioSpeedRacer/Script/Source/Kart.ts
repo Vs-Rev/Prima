@@ -1,7 +1,7 @@
 namespace Script {
     import ƒ = FudgeCore;
 
-    export class Kart extends ƒ.Node{
+    export class Kart extends ƒ.Node {
 
         private lastFrameTime: number;
         private deltaTime: number;
@@ -15,9 +15,16 @@ namespace Script {
         private maxSteerAngle: number = 65; //80
         private currentSteerAngle: number = 0;
 
-        constructor() {
+        constructor(maxSpeed: number, acceleration: number, maxSteerAngle: number, steeringSpeed: number, mass: number, friction: number) {
 
             super("Kart");
+
+            this.maxSpeed = maxSpeed;
+
+            this.acceleration = acceleration;
+            this.maxSteerAngle = maxSteerAngle;
+            this.steeringSpeed = steeringSpeed;
+
 
             let cmpTransform = new ƒ.ComponentTransform();
 
@@ -39,7 +46,8 @@ namespace Script {
 
             this.rb = new ƒ.ComponentRigidbody();
             this.rb.typeBody = ƒ.BODY_TYPE.DYNAMIC;
-            this.rb.friction = 0.6;
+            this.rb.mass = mass;
+            this.rb.friction = friction;
             this.rb.effectGravity = 2;
             this.rb.effectRotation = new ƒ.Vector3(0, 0, 0);
             this.rb.restitution = 0;
@@ -68,7 +76,7 @@ namespace Script {
             let currentVelocity: ƒ.Vector3 = this.rb.getVelocity();
 
             let xzVelocity: ƒ.Vector3 = new ƒ.Vector3(currentVelocity.x, 0, currentVelocity.z);
-    
+
             if (xzVelocity.magnitude <= 0.01) {
                 return;
             }
@@ -125,7 +133,7 @@ namespace Script {
                 return;
             }
 
-            
+
             let defaultForward: ƒ.Vector3 = new ƒ.Vector3(0, 0, 1);
             let kartForward: ƒ.Vector3 = ƒ.Vector3.TRANSFORMATION(defaultForward, ƒ.Matrix4x4.ROTATION_Y(this.cmpTransform.mtxLocal.rotation.y));
             let dotKartForwardVelocity: number = ƒ.Vector3.DOT(kartForward, this.rb.getVelocity());

@@ -21,7 +21,7 @@ declare namespace Script {
         private steeringSpeed;
         private maxSteerAngle;
         private currentSteerAngle;
-        constructor();
+        constructor(maxSpeed: number, acceleration: number, maxSteerAngle: number, steeringSpeed: number, mass: number, friction: number);
         update(): void;
         private calculateDeltaTime;
         private rotateKart;
