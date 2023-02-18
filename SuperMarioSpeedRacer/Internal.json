@@ -232,6 +232,22 @@
       }
     }
   },
+  "Audio|2023-02-18T09:47:17.372Z|12463": {
+    "ƒ.Audio": {
+      "url": "Ressources\\Audio\\Coin_Collect.mp3",
+      "idResource": "Audio|2023-02-18T09:47:17.372Z|12463",
+      "name": "A_CoinCollect",
+      "type": "Audio"
+    }
+  },
+  "Audio|2023-02-18T09:48:06.072Z|33255": {
+    "ƒ.Audio": {
+      "url": "Ressources\\Audio\\Background_Music.mp3",
+      "idResource": "Audio|2023-02-18T09:48:06.072Z|33255",
+      "name": "A_Music",
+      "type": "Audio"
+    }
+  },
   "Graph|2023-01-24T19:15:40.303Z|89789": {
     "ƒ.Graph": {
       "name": "Main",
@@ -33226,6 +33242,55 @@
               ]
             },
             "children": []
+          }
+        },
+        {
+          "ƒ.Node": {
+            "name": "Sounds",
+            "active": true,
+            "components": {},
+            "children": [
+              {
+                "ƒ.Node": {
+                  "name": "Collect",
+                  "active": true,
+                  "components": {
+                    "ComponentAudio": [
+                      {
+                        "ƒ.ComponentAudio": {
+                          "active": true,
+                          "idResource": "Audio|2023-02-18T09:47:17.372Z|12463",
+                          "playing": false,
+                          "loop": false,
+                          "volume": 2
+                        }
+                      }
+                    ]
+                  },
+                  "children": []
+                }
+              },
+              {
+                "ƒ.Node": {
+                  "name": "Music",
+                  "active": true,
+                  "components": {
+                    "ComponentAudio": [
+                      {
+                        "ƒ.ComponentAudio": {
+                          "active": true,
+                          "idResource": "Audio|2023-02-18T09:48:06.072Z|33255",
+                          "playing": true,
+                          "loop": true,
+                          "volume": 1
+                        }
+                      }
+                    ]
+                  },
+                  "children": []
+                }
+              }
+            ]
           }
         }
       ],

@@ -229,7 +229,7 @@ var Script;
     let statistics;
     let soundsContainer;
     let soundCollect;
-    let soundMusik;
+    let soundMusic;
     ///////////////////////////////////////////////////////
     //Start/Init
     ///////////////////////////////////////////////////////
@@ -256,8 +256,10 @@ var Script;
     function initSounds() {
         soundsContainer = root.getChildrenByName("Sounds")[0];
         soundCollect = soundsContainer.getChildrenByName("Collect")[0].getComponent(ƒ.ComponentAudio);
-        soundMusik = soundsContainer.getChildrenByName("Musik")[0].getComponent(ƒ.ComponentAudio);
-        soundMusik.play(true);
+        soundMusic = soundsContainer.getChildrenByName("Music")[0].getComponent(ƒ.ComponentAudio);
+        viewport.camera.node.addChild(soundCollect.node);
+        viewport.camera.node.addChild(soundMusic.node);
+        soundMusic.play(true);
     }
     function initStartTimer() {
         let time = new ƒ.Time();
@@ -381,6 +383,7 @@ var Script;
         constructor(_timer) {
             super();
             let vuiHTML = document.querySelector("#vui");
+            vuiHTML.setAttribute("style", "font-size: 25px");
             let customElement = ƒUI.Generator.createInterfaceFromMutable(this);
             vuiHTML.appendChild(customElement);
             this.controller = new ƒUI.Controller(this, customElement);

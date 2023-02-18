@@ -16,6 +16,7 @@ namespace Script {
       super();
 
       let vuiHTML: HTMLParagraphElement = document.querySelector("#vui");
+      vuiHTML.setAttribute("style", "font-size: 25px");
 
       let customElement: HTMLDivElement=  ƒUI.Generator.createInterfaceFromMutable(this);
       vuiHTML.appendChild(customElement);

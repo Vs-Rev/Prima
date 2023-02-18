@@ -37,7 +37,7 @@ namespace Script {
   let soundsContainer: ƒ.Node;
 
   let soundCollect: ƒ.ComponentAudio;
-  let soundMusik: ƒ.ComponentAudio;
+  let soundMusic: ƒ.ComponentAudio;
 
   ///////////////////////////////////////////////////////
   //Start/Init
@@ -84,9 +84,12 @@ namespace Script {
     soundsContainer = root.getChildrenByName("Sounds")[0];
 
     soundCollect = soundsContainer.getChildrenByName("Collect")[0].getComponent(ƒ.ComponentAudio);
-    soundMusik = soundsContainer.getChildrenByName("Musik")[0].getComponent(ƒ.ComponentAudio);
+    soundMusic = soundsContainer.getChildrenByName("Music")[0].getComponent(ƒ.ComponentAudio);
 
-    soundMusik.play(true);
+    viewport.camera.node.addChild(soundCollect.node);
+    viewport.camera.node.addChild(soundMusic.node);
+
+    soundMusic.play(true);
   }
 
 
