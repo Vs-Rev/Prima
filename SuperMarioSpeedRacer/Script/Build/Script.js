@@ -83,6 +83,8 @@ var Script;
         steeringSpeed = 7;
         maxSteerAngle = 65; //80
         currentSteerAngle = 0;
+        //spritess
+        sprite;
         constructor(maxSpeed, acceleration, maxSteerAngle, steeringSpeed, mass, friction) {
             super("Kart");
             this.maxSpeed = maxSpeed;
@@ -98,6 +100,7 @@ var Script;
             let material = ƒ.Project.resources["Material|2023-02-17T06:10:18.236Z|44182"];
             let cmpMaterial = new ƒ.ComponentMaterial(material);
             cmpMaterial.clrPrimary = new ƒ.Color(0.5, 1, 1, 1);
+            this.spriteSetup();
             this.mtxLocal.scale(new ƒ.Vector3(1, 1, 1));
             this.addComponent(new ƒ.ComponentMesh(mesh));
             this.addComponent(cmpMaterial);
@@ -111,6 +114,11 @@ var Script;
             //this.rb.friction = 0;
             this.addComponent(this.rb);
             this.lastFrameTime = new Date().getTime();
+        }
+        async spriteSetup() {
+            this.sprite = await Script.setupSprite("Kart", [0, 0, 30, 30], 5, 32);
+            this.sprite.mtxLocal.scale(new ƒ.Vector3(2, 2, 1));
+            this.addChild(this.sprite);
         }
         update() {
             this.calculateDeltaTime();
@@ -412,6 +420,30 @@ var Script;
         coinDisplay.innerHTML = "Coin Count: " + coinCount;
       }
       */
+})(Script || (Script = {}));
+var Script;
+(function (Script) {
+    var ƒ = FudgeCore;
+    var ƒAid = FudgeAid;
+    async function setupSprite(_name, _position, _frames, _offset) {
+        let imgSpriteSheet = new ƒ.TextureImage();
+        await imgSpriteSheet.load("Sprites/sprites.png");
+        let coat = new ƒ.CoatTextured(undefined, imgSpriteSheet);
+        let animation = new ƒAid.SpriteSheetAnimation(_name, coat);
+        animation.generateByGrid(ƒ.Rectangle.GET(_position[0], _position[1], _position[2], _position[3]), _frames, 70, ƒ.ORIGIN2D.CENTER, ƒ.Vector2.X(_offset));
+        let sprite = new ƒAid.NodeSprite("Sprite");
+        sprite.setAnimation(animation);
+        sprite.setFrameDirection(1);
+        sprite.framerate = 6;
+        let cmpTransfrom = new ƒ.ComponentTransform();
+        sprite.addComponent(cmpTransfrom);
+        return sprite;
+    }
+    Script.setupSprite = setupSprite;
+    async function changeImage() {
+        //change Sprite Image
+    }
+    Script.changeImage = changeImage;
 })(Script || (Script = {}));
 var Script;
 (function (Script) {

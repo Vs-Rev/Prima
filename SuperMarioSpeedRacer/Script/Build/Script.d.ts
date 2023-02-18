@@ -21,6 +21,7 @@ declare namespace Script {
 }
 declare namespace Script {
     import ƒ = FudgeCore;
+    import ƒAid = FudgeAid;
     class Kart extends ƒ.Node {
         private lastFrameTime;
         private deltaTime;
@@ -31,7 +32,9 @@ declare namespace Script {
         private steeringSpeed;
         private maxSteerAngle;
         private currentSteerAngle;
+        sprite: ƒAid.NodeSprite;
         constructor(maxSpeed: number, acceleration: number, maxSteerAngle: number, steeringSpeed: number, mass: number, friction: number);
+        private spriteSetup;
         update(): void;
         private calculateDeltaTime;
         private rotateKart;
@@ -56,6 +59,11 @@ declare namespace Script {
     let touchPos: ƒ.Vector2;
     let touchSideVertical: TouchSideVertical;
     let touchSideHorizontal: TouchSideHorizontal;
+}
+declare namespace Script {
+    import ƒAid = FudgeAid;
+    function setupSprite(_name: string, _position: number[], _frames: number, _offset: number): Promise<ƒAid.NodeSprite>;
+    function changeImage(): Promise<void>;
 }
 declare namespace Script {
     import ƒ = FudgeCore;

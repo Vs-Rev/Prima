@@ -1,6 +1,6 @@
 namespace Script {
     import ƒ = FudgeCore;
-
+    import ƒAid = FudgeAid;
 
     export class Kart extends ƒ.Node {
 
@@ -16,6 +16,8 @@ namespace Script {
         private steeringSpeed: number = 7;
         private maxSteerAngle: number = 65; //80
         private currentSteerAngle: number = 0;
+        //spritess
+        sprite: ƒAid.NodeSprite;
 
         constructor(maxSpeed: number, acceleration: number, maxSteerAngle: number, steeringSpeed: number, mass: number, friction: number) {
 
@@ -39,6 +41,8 @@ namespace Script {
             let cmpMaterial: ƒ.ComponentMaterial = new ƒ.ComponentMaterial(material);
             cmpMaterial.clrPrimary = new ƒ.Color(0.5, 1, 1, 1);
 
+            this.spriteSetup();
+
 
 
             this.mtxLocal.scale(new ƒ.Vector3(1, 1, 1));
@@ -57,6 +61,11 @@ namespace Script {
             this.addComponent(this.rb);
 
             this.lastFrameTime = new Date().getTime();
+        }
+        private async spriteSetup(): Promise<void> {
+            this.sprite = await setupSprite("Kart", [0, 0, 30, 30], 5, 32);
+            this.sprite.mtxLocal.scale(new ƒ.Vector3(2, 2, 1));
+            this.addChild(this.sprite);
         }
 
         public update(): void {
