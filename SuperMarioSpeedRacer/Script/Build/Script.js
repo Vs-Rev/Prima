@@ -165,7 +165,7 @@ var Script;
             let dotKartForwardVelocity = ƒ.Vector3.DOT(kartForward, this.rb.getVelocity());
             let isRearDriving = dotKartForwardVelocity < 0 ? true : false;
             //vorwärts
-            if (ƒ.Keyboard.isPressedOne([ƒ.KEYBOARD_CODE.W, ƒ.KEYBOARD_CODE.ARROW_UP])) {
+            if (ƒ.Keyboard.isPressedOne([ƒ.KEYBOARD_CODE.W, ƒ.KEYBOARD_CODE.ARROW_UP]) || Script.touchSideVertical == Script.TouchSideVertical.up) {
                 let defaultVector = new ƒ.Vector3(0, 0, this.acceleration * this.deltaTime);
                 //anlassen:
                 let currentKartRotation = this.cmpTransform.mtxLocal.rotation;
@@ -175,7 +175,7 @@ var Script;
                 }
             }
             //bremsen
-            if (ƒ.Keyboard.isPressedOne([ƒ.KEYBOARD_CODE.S, ƒ.KEYBOARD_CODE.ARROW_DOWN])) {
+            if (ƒ.Keyboard.isPressedOne([ƒ.KEYBOARD_CODE.S, ƒ.KEYBOARD_CODE.ARROW_DOWN]) || Script.touchSideVertical == Script.TouchSideVertical.down) {
                 let defaultVector = new ƒ.Vector3(0, 0, (isRearDriving ? 2 : 1) * -this.acceleration * this.deltaTime);
                 let currentKartRotation = this.cmpTransform.mtxLocal.rotation;
                 let rotatedVector = ƒ.Vector3.TRANSFORMATION(defaultVector, ƒ.Matrix4x4.ROTATION_Y(currentKartRotation.y));
@@ -185,12 +185,12 @@ var Script;
             }
             let isSteerInput;
             //rechts
-            if (ƒ.Keyboard.isPressedOne([ƒ.KEYBOARD_CODE.D, ƒ.KEYBOARD_CODE.ARROW_RIGHT])) {
+            if (ƒ.Keyboard.isPressedOne([ƒ.KEYBOARD_CODE.D, ƒ.KEYBOARD_CODE.ARROW_RIGHT]) || Script.touchSideHorizontal == Script.TouchSideHorizontal.right) {
                 this.decrementSteerFactor();
                 isSteerInput = true;
             }
             //links
-            if (ƒ.Keyboard.isPressedOne([ƒ.KEYBOARD_CODE.A, ƒ.KEYBOARD_CODE.ARROW_LEFT])) {
+            if (ƒ.Keyboard.isPressedOne([ƒ.KEYBOARD_CODE.A, ƒ.KEYBOARD_CODE.ARROW_LEFT]) || Script.touchSideHorizontal == Script.TouchSideHorizontal.left) {
                 this.incrementSteerFactor();
                 isSteerInput = true;
             }
@@ -215,8 +215,24 @@ var Script;
     ƒ.Debug.info("Main Program Template running!");
     let viewport;
     document.addEventListener("interactiveViewportStarted", start);
+    window.addEventListener("touchmove", onTouchMove);
+    window.addEventListener("touchend", onTouchEnd);
     let root;
     let kart;
+    let TouchSideVertical;
+    (function (TouchSideVertical) {
+        TouchSideVertical[TouchSideVertical["none"] = 0] = "none";
+        TouchSideVertical[TouchSideVertical["up"] = 1] = "up";
+        TouchSideVertical[TouchSideVertical["down"] = 2] = "down";
+    })(TouchSideVertical = Script.TouchSideVertical || (Script.TouchSideVertical = {}));
+    let TouchSideHorizontal;
+    (function (TouchSideHorizontal) {
+        TouchSideHorizontal[TouchSideHorizontal["none"] = 0] = "none";
+        TouchSideHorizontal[TouchSideHorizontal["left"] = 1] = "left";
+        TouchSideHorizontal[TouchSideHorizontal["right"] = 2] = "right";
+    })(TouchSideHorizontal = Script.TouchSideHorizontal || (Script.TouchSideHorizontal = {}));
+    Script.touchSideVertical = TouchSideVertical.none;
+    Script.touchSideHorizontal = TouchSideHorizontal.none;
     let rbRoundTrigger;
     let maxLapCount = 2;
     let timer;
@@ -289,6 +305,25 @@ var Script;
         viewport.camera.mtxPivot.translateZ(22);
         viewport.camera.mtxPivot.rotateY(180);
         viewport.camera.mtxPivot.rotateX(4);
+    }
+    function onTouchMove(event) {
+        Script.touchPos = new ƒ.Vector2(event.touches[0].clientX, event.touches[0].clientY);
+        if (Script.touchPos.x < viewport.canvas.width / 2) {
+            Script.touchSideHorizontal = TouchSideHorizontal.left;
+        }
+        if (Script.touchPos.x > viewport.canvas.width / 2) {
+            Script.touchSideHorizontal = TouchSideHorizontal.right;
+        }
+        if (Script.touchPos.y < viewport.canvas.height / 2) {
+            Script.touchSideVertical = TouchSideVertical.down;
+        }
+        if (Script.touchPos.y > viewport.canvas.height / 2) {
+            Script.touchSideVertical = TouchSideVertical.up;
+        }
+    }
+    function onTouchEnd(event) {
+        Script.touchSideVertical = TouchSideVertical.none;
+        Script.touchSideHorizontal = TouchSideHorizontal.none;
     }
     ///////////////////////////////////////////////////////
     //Main update cycle

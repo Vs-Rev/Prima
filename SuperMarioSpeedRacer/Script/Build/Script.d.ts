@@ -42,6 +42,20 @@ declare namespace Script {
     }
 }
 declare namespace Script {
+    import ƒ = FudgeCore;
+    enum TouchSideVertical {
+        none = 0,
+        up = 1,
+        down = 2
+    }
+    enum TouchSideHorizontal {
+        none = 0,
+        left = 1,
+        right = 2
+    }
+    let touchPos: ƒ.Vector2;
+    let touchSideVertical: TouchSideVertical;
+    let touchSideHorizontal: TouchSideHorizontal;
 }
 declare namespace Script {
     import ƒ = FudgeCore;

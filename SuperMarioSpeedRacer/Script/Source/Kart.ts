@@ -1,7 +1,9 @@
 namespace Script {
     import ƒ = FudgeCore;
 
+
     export class Kart extends ƒ.Node {
+
 
         private lastFrameTime: number;
         private deltaTime: number;
@@ -139,7 +141,7 @@ namespace Script {
             let isRearDriving: boolean = dotKartForwardVelocity < 0 ? true : false;
 
             //vorwärts
-            if (ƒ.Keyboard.isPressedOne([ƒ.KEYBOARD_CODE.W, ƒ.KEYBOARD_CODE.ARROW_UP])) {
+            if (ƒ.Keyboard.isPressedOne([ƒ.KEYBOARD_CODE.W, ƒ.KEYBOARD_CODE.ARROW_UP]) || touchSideVertical == TouchSideVertical.up) {
 
                 let defaultVector: ƒ.Vector3 = new ƒ.Vector3(0, 0, this.acceleration * this.deltaTime);
 
@@ -154,7 +156,7 @@ namespace Script {
             }
 
             //bremsen
-            if (ƒ.Keyboard.isPressedOne([ƒ.KEYBOARD_CODE.S, ƒ.KEYBOARD_CODE.ARROW_DOWN])) {
+            if (ƒ.Keyboard.isPressedOne([ƒ.KEYBOARD_CODE.S, ƒ.KEYBOARD_CODE.ARROW_DOWN])  || touchSideVertical == TouchSideVertical.down) {
 
                 let defaultVector: ƒ.Vector3 = new ƒ.Vector3(0, 0, (isRearDriving ? 2 : 1) * -this.acceleration * this.deltaTime);
 
@@ -170,14 +172,14 @@ namespace Script {
             let isSteerInput: boolean;
 
             //rechts
-            if (ƒ.Keyboard.isPressedOne([ƒ.KEYBOARD_CODE.D, ƒ.KEYBOARD_CODE.ARROW_RIGHT])) {
+            if (ƒ.Keyboard.isPressedOne([ƒ.KEYBOARD_CODE.D, ƒ.KEYBOARD_CODE.ARROW_RIGHT])  || touchSideHorizontal == TouchSideHorizontal.right) {
 
                 this.decrementSteerFactor();
 
                 isSteerInput = true;
             }
             //links
-            if (ƒ.Keyboard.isPressedOne([ƒ.KEYBOARD_CODE.A, ƒ.KEYBOARD_CODE.ARROW_LEFT])) {
+            if (ƒ.Keyboard.isPressedOne([ƒ.KEYBOARD_CODE.A, ƒ.KEYBOARD_CODE.ARROW_LEFT]) || touchSideHorizontal == TouchSideHorizontal.left) {
 
                 this.incrementSteerFactor();
 

@@ -7,9 +7,24 @@ namespace Script {
 
   let viewport: ƒ.Viewport;
   document.addEventListener("interactiveViewportStarted", <EventListener><unknown>start);
+  window.addEventListener("touchmove", onTouchMove);
+  window.addEventListener("touchend", onTouchEnd);
+
 
   let root: ƒ.Node;
   let kart: Kart;
+
+  export enum TouchSideVertical {
+    none, up, down
+  }
+
+  export enum TouchSideHorizontal {
+    none, left, right
+  }
+
+  export let touchPos: ƒ.Vector2;
+  export let touchSideVertical: TouchSideVertical = TouchSideVertical.none;
+  export let touchSideHorizontal: TouchSideHorizontal = TouchSideHorizontal.none;
 
   let rbRoundTrigger: ƒ.ComponentRigidbody;
 
@@ -137,6 +152,34 @@ namespace Script {
     viewport.camera.mtxPivot.rotateX(4);
   }
 
+  function onTouchMove(event: TouchEvent): void {
+
+    touchPos = new ƒ.Vector2(event.touches[0].clientX, event.touches[0].clientY);
+
+
+    if (touchPos.x < viewport.canvas.width / 2) {
+      touchSideHorizontal = TouchSideHorizontal.left;
+    }
+
+    if (touchPos.x > viewport.canvas.width / 2) {
+      touchSideHorizontal = TouchSideHorizontal.right;
+    }
+
+    if (touchPos.y < viewport.canvas.height / 2) {
+      touchSideVertical = TouchSideVertical.down;
+    }
+
+    if (touchPos.y > viewport.canvas.height / 2) {
+      touchSideVertical = TouchSideVertical.up;
+    }
+
+  }
+
+  function onTouchEnd(event: TouchEvent): void {
+
+    touchSideVertical = TouchSideVertical.none;
+    touchSideHorizontal = TouchSideHorizontal.none;
+  }
   ///////////////////////////////////////////////////////
   //Main update cycle
   ///////////////////////////////////////////////////////
