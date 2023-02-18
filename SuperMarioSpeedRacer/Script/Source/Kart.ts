@@ -18,7 +18,6 @@ namespace Script {
         constructor(maxSpeed: number, acceleration: number, maxSteerAngle: number, steeringSpeed: number, mass: number, friction: number) {
 
             super("Kart");
-
             this.maxSpeed = maxSpeed;
 
             this.acceleration = acceleration;
