@@ -261,9 +261,9 @@ var Script;
     let soundsContainer;
     let soundCollect;
     let soundMusic;
-    ///////////////////////////////////////////////////////
+    //-----------------------------------------------//
     //Start/Init
-    ///////////////////////////////////////////////////////
+    //-----------------------------------------------//
     async function start(_event) {
         await getExternalData();
         viewport = _event.detail;
@@ -340,9 +340,9 @@ var Script;
         Script.touchSideVertical = TouchSideVertical.none;
         Script.touchSideHorizontal = TouchSideHorizontal.none;
     }
-    ///////////////////////////////////////////////////////
+    //-----------------------------------------------//
     //Main update cycle
-    ///////////////////////////////////////////////////////
+    //-----------------------------------------------//
     function update(_event) {
         if (ƒ.Keyboard.isPressedOne([ƒ.KEYBOARD_CODE.BACKSPACE])) {
             increaseLapCount();
@@ -362,16 +362,16 @@ var Script;
         viewport.draw();
         ƒ.AudioManager.default.update();
     }
-    ///////////////////////////////////////////////////////
+    //-----------------------------------------------//
     //Timer
-    ///////////////////////////////////////////////////////
+    //-----------------------------------------------//
     function onTimerTick() {
         millisecondsSinceStart += 100;
         updateTimerDisplay();
     }
-    ///////////////////////////////////////////////////////
+    //-----------------------------------------------//
     //RoundLapse Management
-    ///////////////////////////////////////////////////////
+    //-----------------------------------------------//
     function checkRoundDriveThrough() {
         if (rbRoundTrigger.triggerings.length > 0) {
             if (!isKartInRoundTrigger) {
@@ -397,9 +397,9 @@ var Script;
         //let saveData: Data = new Data(coinCount, millisecondsSinceStart);
         //saveData.serialize();
     }
-    ///////////////////////////////////////////////////////
+    //-----------------------------------------------//
     //display updates
-    ///////////////////////////////////////////////////////
+    //-----------------------------------------------//
     /*
     function updateLapDisplay(): void {
       lapDisplay.innerHTML = "Lap Count: " + lapCount;
