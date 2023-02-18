@@ -1,8 +1,7 @@
 namespace Script {
     import ƒ = FudgeCore;
 
-    export class Kart extends ƒ.Node {
-
+    export class Kart extends ƒ.Node{
 
         private lastFrameTime: number;
         private deltaTime: number;
@@ -12,8 +11,8 @@ namespace Script {
         private maxSpeed: number = 50;
 
         private currentSteerFactor: number = 0;
-        private steeringSpeed: number = 3;
-        private maxSteerAngle: number = 50; //80
+        private steeringSpeed: number = 7;
+        private maxSteerAngle: number = 65; //80
         private currentSteerAngle: number = 0;
 
         constructor() {

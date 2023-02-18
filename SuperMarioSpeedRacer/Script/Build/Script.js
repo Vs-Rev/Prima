@@ -2,6 +2,31 @@
 var Script;
 (function (Script) {
     var ƒ = FudgeCore;
+    class Data {
+        coinCount;
+        millisecondsSinceStart;
+        constructor(coinCount, millisecondsSinceStart) {
+            this.coinCount = coinCount;
+            this.millisecondsSinceStart = millisecondsSinceStart;
+        }
+        serialize() {
+            let jsonString = ƒ.Serializer.stringify(this);
+            //console.log(ƒ.Serializer.stringify(this));
+            console.log(jsonString);
+            //fs.writeFile("SavedData.json", jsonString, this.nooperation);
+            return null;
+        }
+        nooperation = () => { };
+        deserialize(_serialization) {
+            //fs.readFileSync('foo.txt', 'utf8');
+            throw new Error("Method not implemented.");
+        }
+    }
+    Script.Data = Data;
+})(Script || (Script = {}));
+var Script;
+(function (Script) {
+    var ƒ = FudgeCore;
     class Kart extends ƒ.Node {
         lastFrameTime;
         deltaTime;
@@ -9,8 +34,8 @@ var Script;
         acceleration = 1500;
         maxSpeed = 50;
         currentSteerFactor = 0;
-        steeringSpeed = 3;
-        maxSteerAngle = 50; //80
+        steeringSpeed = 7;
+        maxSteerAngle = 65; //80
         currentSteerAngle = 0;
         constructor() {
             super("Kart");
@@ -145,33 +170,91 @@ var Script;
     let lapCount = 0;
     let maxLapCount = 2;
     let lapDisplay;
+    let coinCount = 0;
+    let coinDisplay;
+    let timer;
+    let millisecondsSinceStart = 0;
+    let timeDisplay;
     let isKartInRoundTrigger;
+    let items;
+    let coinsContainer;
+    let coinsList = [];
+    let gameWon;
+    ///////////////////////////////////////////////////////
+    //Start/Init
+    ///////////////////////////////////////////////////////
     function start(_event) {
         viewport = _event.detail;
         root = viewport.getBranch();
-        kart = new Script.Kart();
-        //viewport.camera.mtxPivot.translateY(3.5);
-        viewport.camera.mtxPivot.translateY(4);
-        //viewport.camera.mtxPivot.translateZ(15);
-        viewport.camera.mtxPivot.translateZ(22);
-        viewport.camera.mtxPivot.rotateY(180);
-        //viewport.camera.mtxPivot.rotateX(15);
-        viewport.camera.mtxPivot.rotateX(4);
-        kart.addChild(viewport.camera.node);
-        root.addChild(kart);
-        lapDisplay = document.querySelector("#lapDisplay");
-        rbRoundTrigger = root.getChildrenByName("RoundTrigger")[0].getComponent(ƒ.ComponentRigidbody);
-        rbRoundTrigger.collisionMask = ƒ.COLLISION_GROUP.GROUP_5;
+        adjustCamera();
+        buildKart();
+        querySelectDisplays();
+        initTrigger();
+        items = root.getChildrenByName("Items")[0];
+        initCoins();
+        initStartTimer();
         ƒ.Loop.addEventListener("loopFrame" /* ƒ.EVENT.LOOP_FRAME */, update);
         ƒ.Loop.start(); // start the game loop to continously draw the viewport, update the audiosystem and drive the physics i/a
     }
+    function initStartTimer() {
+        let time = new ƒ.Time();
+        timer = new ƒ.Timer(time, 100, 99999, onTimerTick);
+        timer.active = true;
+    }
+    function initCoins() {
+        coinsContainer = items.getChildrenByName("Coins")[0];
+        let coins = coinsContainer.getChildrenByName("PRF_Coin");
+        coins.forEach(coin => coinsList.push(coin.getComponent(ƒ.ComponentRigidbody)));
+    }
+    function initTrigger() {
+        rbRoundTrigger = root.getChildrenByName("RoundTrigger")[0].getComponent(ƒ.ComponentRigidbody);
+        rbRoundTrigger.collisionMask = ƒ.COLLISION_GROUP.GROUP_5;
+    }
+    function querySelectDisplays() {
+        lapDisplay = document.querySelector("#lapDisplay");
+        coinDisplay = document.querySelector("#coinDisplay");
+        timeDisplay = document.querySelector("#timeDisplay");
+    }
+    function buildKart() {
+        kart = new Script.Kart();
+        kart.addChild(viewport.camera.node);
+        root.addChild(kart);
+    }
+    function adjustCamera() {
+        viewport.camera.mtxPivot.translateY(4);
+        viewport.camera.mtxPivot.translateZ(22);
+        viewport.camera.mtxPivot.rotateY(180);
+        viewport.camera.mtxPivot.rotateX(4);
+    }
+    ///////////////////////////////////////////////////////
+    //Main update cycle
+    ///////////////////////////////////////////////////////
     function update(_event) {
+        if (ƒ.Keyboard.isPressedOne([ƒ.KEYBOARD_CODE.BACKSPACE])) {
+            lapCount++;
+            increaseLapCount();
+        }
+        if (gameWon) {
+            timer.active = false;
+            return;
+        }
         kart.update();
         ƒ.Physics.simulate(); // if physics is included and used
-        viewport.draw();
         checkRoundDriveThrough();
+        updateCoins();
+        viewport.draw();
         ƒ.AudioManager.default.update();
     }
+    ///////////////////////////////////////////////////////
+    //Timer
+    ///////////////////////////////////////////////////////
+    function onTimerTick() {
+        millisecondsSinceStart += 100;
+        updateTimerDisplay();
+    }
+    ///////////////////////////////////////////////////////
+    //RoundLapse Management
+    ///////////////////////////////////////////////////////
     function checkRoundDriveThrough() {
         if (rbRoundTrigger.triggerings.length > 0) {
             if (!isKartInRoundTrigger) {
@@ -185,10 +268,48 @@ var Script;
     }
     function increaseLapCount() {
         lapCount++;
+        if (lapCount > maxLapCount) {
+            gameWinEnd();
+        }
         updateLapDisplay();
     }
+    function gameWinEnd() {
+        kart.getComponent(ƒ.ComponentRigidbody).typeBody = ƒ.BODY_TYPE.STATIC;
+        gameWon = true;
+        let saveData = new Script.Data(coinCount, millisecondsSinceStart);
+        saveData.serialize();
+    }
+    ///////////////////////////////////////////////////////
+    //display updates
+    ///////////////////////////////////////////////////////
     function updateLapDisplay() {
         lapDisplay.innerHTML = "Lap Count: " + lapCount;
+    }
+    function updateTimerDisplay() {
+        let tempSeconds = millisecondsSinceStart / 1000;
+        let milliseconds = millisecondsSinceStart % 1000;
+        let seconds = Math.floor(tempSeconds) % 60;
+        let minutes = tempSeconds / 60;
+        timeDisplay.innerHTML = "Time: " + Math.floor(minutes) + ":" + seconds + ":" + milliseconds;
+    }
+    function updateCoinDisplay() {
+        coinDisplay.innerHTML = "Coin Count: " + coinCount;
+    }
+    ///////////////////////////////////////////////////////
+    //coins
+    ///////////////////////////////////////////////////////
+    function updateCoins() {
+        coinsList.forEach(coin => checkTriggering(coin));
+    }
+    function checkTriggering(coin) {
+        if (coin.triggerings.length > 0) {
+            collectCoin(coin);
+        }
+    }
+    function collectCoin(coin) {
+        coinsContainer.removeChild(coin.node);
+        coinCount++;
+        updateCoinDisplay();
     }
 })(Script || (Script = {}));
 //# sourceMappingURL=Script.js.map
