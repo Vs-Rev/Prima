@@ -62,6 +62,10 @@ namespace Script {
 
             this.calculateDeltaTime();
             this.inputDrive();
+            if (this.rb.getPosition().y < -20){
+                this.rb.setPosition(new ƒ.Vector3(0,0,0))
+                this.rb.setVelocity(new ƒ.Vector3(0,0,1))
+                };
         }
 
 
