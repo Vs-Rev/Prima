@@ -216,7 +216,7 @@
       "coat": {
         "ƒ.CoatTextured": {
           "color": "[1, 1, 0, 1]",
-          "idTexture": "TextureImage|2023-02-18T06:13:47.545Z|41033"
+          "idTexture": "TextureImage|2023-02-18T14:10:49.331Z|27314"
         }
       }
     }
@@ -33615,6 +33615,17 @@
       "children": [],
       "idResource": "Graph|2023-02-17T23:45:42.374Z|74150",
       "type": "Graph"
+    }
+  },
+  "TextureImage|2023-02-18T14:10:49.331Z|27314": {
+    "ƒ.TextureImage": {
+      "url": "Ressources\\Textures\\CoinQuader.png",
+      "type": "TextureImage",
+      "Texture": {
+        "idResource": "TextureImage|2023-02-18T14:10:49.331Z|27314",
+        "name": "T_CoinQuadr",
+        "mipmap": "CRISP"
+      }
     }
   }
 }

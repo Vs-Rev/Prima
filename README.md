@@ -20,7 +20,7 @@ Fahren -> W - Gas Geben, D - Bremsen, A - Drehung nach links, D - Drehung nach r
 Das Ziel ist es, 3 Runden in Bestzeit zu fahren und dabei alle Münzen einzusammeln.    
 
 
-Vorgaben (ausführliche Variante mit Links zu den einzelenen Code-Stellen im Design-Dokument)
+Vorgaben 
 ============================================
 
 |                         |                                                                                                                                                                                                                                                                                                                                                                                          |
