@@ -33446,7 +33446,7 @@
                           "idResource": "Audio|2023-02-18T09:47:17.372Z|12463",
                           "playing": false,
                           "loop": false,
-                          "volume": 2
+                          "volume": 1
                         }
                       }
                     ]
@@ -33466,7 +33466,7 @@
                           "idResource": "Audio|2023-02-18T09:48:06.072Z|33255",
                           "playing": true,
                           "loop": true,
-                          "volume": 1
+                          "volume": 0.4999999701976776
                         }
                       }
                     ]

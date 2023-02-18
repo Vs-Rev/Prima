@@ -32,8 +32,9 @@ namespace Script {
             cmpTransform.mtxLocal.translateY(1.5);
 
             this.addComponent(cmpTransform);
-
+            //"MeshObj|2023-02-18T15:18:36.388Z|78878"
             let mesh: ƒ.MeshCube = new ƒ.MeshCube();
+            //let mesh: ƒ.MeshCube = <ƒ.MeshObj>ƒ.Project.resources["MeshObj|2023-02-18T15:27:32.374Z|13904"];
             let material: ƒ.Material = <ƒ.Material>ƒ.Project.resources["Material|2023-02-17T06:10:18.236Z|44182"];
             let cmpMaterial: ƒ.ComponentMaterial = new ƒ.ComponentMaterial(material);
             cmpMaterial.clrPrimary = new ƒ.Color(0.5, 1, 1, 1);
