@@ -10,6 +10,8 @@ Kurs: PRIMA
 Dozent: Prof. Jirka Dell'Oro-Friedl  
 Executable: https://vs-rev.github.io/Prima/SuperMarioSpeedRacer/index.html 
 
+--> Das Spiel ist auch auf dem Smartphone spielbar (Bedingt)!!!
+
 Game-Design-Document: https://github.com/Vs-Rev/Prima/blob/main/SuperMarioSpeedRacer/Documents/Game-Design-Document_Vasilii_Gurev_263754.pdf
 
 
